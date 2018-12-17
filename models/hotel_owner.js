@@ -6,7 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     telephone: DataTypes.INTEGER,
     address: DataTypes.STRING,
     email: DataTypes.STRING,
-    hotel_owner_username: DataTypes.STRING,
+    hotel_owner_username:{
+      types:DataTypes.STRING,
+      primaryKry:true
+    } ,
     password: DataTypes.STRING
   }, {});
   HOTEL_OWNER.associate = function(models) {

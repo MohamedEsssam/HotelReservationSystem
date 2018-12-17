@@ -6,7 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     credit_card: DataTypes.STRING,
     star_member: DataTypes.BOOLEAN,
-    customer_username: DataTypes.STRING,
+    customer_username:{
+      types:DataTypes.STRING,
+      primaryKry:true
+    } ,
     password: DataTypes.STRING,
     blacklist: DataTypes.BOOLEAN
   }, {});
