@@ -3,41 +3,43 @@ module.exports = (sequelize, DataTypes) => {
   const CUSTOMER_HOTEL_RATE = sequelize.define('CUSTOMER_HOTEL_RATE', {
     customer_username: {
       type: DataTypes.STRING,
-      primaryKey: true
+      primaryKey: true,
+      references:{
+        model:'CUSTOMERs',
+        key:'customer_username'
+      }
     },
     hotel_name: {
       type: DataTypes.STRING,
-      primaryKey: true
+      primaryKey: true,
+      references:{
+        model:'HOTELs',
+        key:'hotel_name'
+      }
     },
     hotel_location: {
       type: DataTypes.STRING,
-      primaryKey: true
+      primaryKey: true,
+      references:{
+        model:'HOTELs',
+        key:'hotel_location'
+      }
     },
     rate: DataTypes.INTEGER,
     comment: DataTypes.STRING
   }, {});
   CUSTOMER_HOTEL_RATE.associate = function (models) {
-    CUSTOMER_HOTEL_RATE.belongsTo(models.CUSTOMER, {
-      as: 'customer_username_foreignkey',
-      foreignKey: 'customer_username',
-      onDelete: 'cascade'
-    });
-    var sql = "ALTER TABLE customer_hotel_rates "+
-    "ADD FOREIGN KEY (hotel_name) REFERENCES hotels(hotel_name),"+
-    "ADD FOREIGN KEY (hotel_location) REFERENCES hotels(hotel_location),"+
-    "ADD FOREIGN KEY (customer_username) REFERENCES customers(customer_username)";
-   // sequelize.query(sql);
-    // CUSTOMER_HOTEL_RATE.belongsTo(models.HOTEL, {
-    //   as:'hotel_name_foreignkey',
-    //   foreignKey: 'hotel_name',
-    //   onDelete: 'cascade'
-    // });
-    // CUSTOMER_HOTEL_RATE.belongsTo(models.HOTEL, {
-    //   as:'hotel_location_foreignkey',
-    //   foreignKey: 'hotel_location',
-    //   onDelete: 'cascade'
-    // });
-    // associations can be defined here
+    
+    
+    // var sql = "ALTER TABLE CUSTOMER_HOTEL_RATEs "+
+    // "ADD CONSTRAINT FK_HOTEL_RATES_HOTELs"+
+    // " FOREIGN KEY(hotel_name,hotel_location) REFERENCES HOTELs(hotel_name,hotel_location)"+
+    // " on delete cascade on update cascade";
+    // var sql1="ALTER TABLE CUSTOMER_HOTEL_RATEs ADD FOREIGN KEY (customer_username) REFERENCES CUSTOMERs(customer_username)"+
+    // " on delete cascade on update cascade";
+    //sequelize.query(sql);
+    //sequelize.query(sql1);
+  
   };
   return CUSTOMER_HOTEL_RATE;
 };
