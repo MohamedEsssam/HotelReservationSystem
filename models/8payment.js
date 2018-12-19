@@ -7,24 +7,20 @@ module.exports = (sequelize, DataTypes) => {
     },
     hotel_name: {
       type: DataTypes.STRING,
-      primaryKey: true
-    },
-    hotel_location: {
-      type: DataTypes.STRING,
-      primaryKey: true
+      primaryKey: true,
     },
     room_number: DataTypes.INTEGER,
     broker_username: DataTypes.STRING
-  }, {});
+  },{});
   PAYMENT.associate = function (models) {
     PAYMENT.belongsTo(models.HOTEL, {
       foreignKey: 'hotel_name', targetKey: 'hotel_name',
       onDelete: 'cascade'
     });
-    PAYMENT.belongsTo(models.HOTEL, {
-      foreignKey: 'hotel_location', targetKey: 'hotel_location',
-      onDelete: 'cascade'
-    });
+    // PAYMENT.belongsTo(models.HOTEL, {
+    //   foreignKey: ['hotel_location','hotel_name'] , targetKey: ['hotel_location', 'hotel_name'],
+    //   onDelete: 'cascade'
+    // });
     PAYMENT.belongsTo(models.ROOM, {
       foreignKey: 'room_number', targetKey: 'room_number',
       onDelete: 'cascade'
