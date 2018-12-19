@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     email: DataTypes.STRING,
     hotel_owner_username:{
-      types:DataTypes.STRING,
-      primaryKry:true
+      type:DataTypes.STRING,
+      primaryKey:true
     } ,
     password: DataTypes.STRING
   }, {});

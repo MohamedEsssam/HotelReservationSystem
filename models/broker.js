@@ -4,13 +4,16 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     credit: DataTypes.FLOAT,
     broker_username:{
-      types:DataTypes.STRING,
-      primaryKry:true
+      type:DataTypes.STRING,
+      primaryKey:true
     } ,
     password: DataTypes.STRING
   }, {});
   BROKER.associate = function(models) {
     // associations can be defined here
   };
+  sequelize.sync({
+    force: true
+  })
   return BROKER;
 };
