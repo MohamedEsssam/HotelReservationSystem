@@ -4,26 +4,26 @@ module.exports = (sequelize, DataTypes) => {
     customer_username: {
       type: DataTypes.STRING,
       primaryKey: true,
-      // references:{
-      //   model:'CUSTOMERs',
-      //   key:'customer_username'
-      // }
+      references:{
+        model:'CUSTOMERs',
+        key:'customer_username'
+      }
     },
     hotel_name: {
       type: DataTypes.STRING,
       primaryKey: true,
-      // references:{
-      //   model:'HOTELs',
-      //   key:'hotel_name'
-      // }
+      references:{
+        model:'HOTELs',
+        key:'hotel_name'
+      }
     },
     hotel_location: {
       type: DataTypes.STRING,
       primaryKey: true,
-      // references:{
-      //   model:'HOTELs',
-      //   key:'hotel_location'
-      // }
+      references:{
+        model:'HOTELs',
+        key:'hotel_location'
+      }
     },
     rate: DataTypes.INTEGER,
     comment: DataTypes.STRING

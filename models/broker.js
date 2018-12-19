@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   BROKER.associate = function(models) {
     // associations can be defined here
   };
-  sequelize.sync({
-    force: true
-  })
+  // sequelize.sync({
+  //   force: true
+  // })
   return BROKER;
 };
