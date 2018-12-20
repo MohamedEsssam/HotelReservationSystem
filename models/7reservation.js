@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   RESERVATION.associate = function (models) {
     RESERVATION.belongsTo(models.CUSTOMER, {
-      foreignKey: 'customer_username', targetKey: 'customer_username',
+      foreignKey: 'customer_username', targetKey: 'username',
       onDelete: 'cascade'
     });
     RESERVATION.belongsTo(models.HOTEL, {

@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   HOTEL.associate = function (models) {
     HOTEL.belongsTo(models.HOTEL_OWNER, {
-      foreignKey: 'hotel_owner_username', targetKey: 'hotel_owner_username',
+      foreignKey: 'hotel_owner_username', targetKey: 'username',
       onDelete: 'cascade'
     });
     // associations can be defined here

@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     onDelete: 'cascade'
     });
     CUSTOMER_HOTEL_RATE.belongsTo(models.CUSTOMER, {
-      foreignKey: 'customer_username', targetKey: 'customer_username',
+      foreignKey: 'customer_username', targetKey: 'username',
       onDelete: 'cascade'
     });
     // var sql = "ALTER TABLE customer_hotel_rates "+

@@ -4,31 +4,22 @@ const bodyParser = require('body-parser')
 
 module.exports = (req, res) => {
 
-    const { username, password} = req.body;
-    console.log(username + " " + password + "botato  " + req.body.selectedtypee)
-        
-    const User = require('./models/'+req.body.selectedtypee)
+     const { username, password } = req.body;
+     const userType = req.body.selectedType;
+     const userSearchAttribute = userType + '_username'
+    const db = require('../models/index')
+    const UserModel = db[userType.toUpperCase()]
 
     //btroo7 lel page 2li feeha 7aaccess 2l database
-    User.findOne({ where: {username} }).then(user => {
+    UserModel.findOne({ where: { username : username, password:password } }).then(user => {
         if (user) {
-            if(user.password==password) 
-            {
-                res.redirect('/'+type+'/'+user.username)
+                res.redirect('/' + userType + '/' + user.username)
+        }
+            //redirect to home -->Password is wrong
+            else {
+                res.redirect('/')
             }
-                //redirect to home -->Password is wrong
-                else {
-                    res.redirect('/home')
-                }
-            
-        }
-        else{
-            return res.redirect('/')
-        }
     })
-
-
-
 };
 
 

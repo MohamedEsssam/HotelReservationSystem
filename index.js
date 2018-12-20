@@ -2,7 +2,7 @@ const registerController = require('./controller/registrationController')
 const loginController=require('./controller/loginController')
 // const HotelOwnerPage=require('./controller/HotelOwnerPage')
 // const BrokerOwnerPage=require('./controller/BrokerOwnerPage')
-// const UserOwnerPage=require('./controller/UserOwnerPage')
+const customerPage=require('./controller/customerPageController')
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/' ,  registerController);
 
+app.get('/customer/:username', customerPage)
+
 app.post('/home',loginController);
 
-app.listen(3000)
+app.listen(9000)

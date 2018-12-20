@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'cascade'
     });
     PAYMENT.belongsTo(models.BROKER, {
-      foreignKey: 'broker_username', targetKey: 'broker_username',
+      foreignKey: 'broker_username', targetKey: 'username',
       onDelete: 'cascade'
     });
     // associations can be defined here

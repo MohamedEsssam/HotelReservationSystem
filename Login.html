@@ -68,7 +68,7 @@ margin:6px;
         <div id="container">
         <form method="post" action="/home">
             <h1 style="text-align:center;font-weight: bold;font-family:Helvetica, Arial, sans-serif;">Signin</h1>
-            <select v-model="selected" @change="onChange()" name="selectedtypee" id="selectedtypee"  required>
+            <select v-model="selected" @change="onChange()" name="selectedType" id="selectedType"  required>
                     <option disabled>choose one </option>
                         <option v-for="option in options" v-bind:value="option.value" name="typeSelect">
                           {{ option.text }}
@@ -93,14 +93,14 @@ margin:6px;
   el: '#container',
   data: {
     selected: '',
-    options: [{ text: 'Hotel owner', value: '2hotel_owner' },
-              { text: 'Customer', value: '5customer' },
-              { text: 'Broker', value: '1broker' }],
+    options: [{ text: 'Hotel owner', value: 'hotel_owner' },
+              { text: 'Customer', value: 'customer' },
+              { text: 'Broker', value: 'broker' }],
   },
   methods : {
     onChange(){
         if(this.selected=="Hotel owner"){
-                
+                console.log("a7a");
         }
         
     }
