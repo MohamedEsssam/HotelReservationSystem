@@ -22,12 +22,17 @@ module.exports = (sequelize, DataTypes) => {
     RESERVATION.belongsTo(models.CUSTOMER, {
       foreignKey: 'customer_username', targetKey: 'username',
       onDelete: 'cascade'
-    });
-    RESERVATION.belongsTo(models.HOTEL, {
+    })
+    RESERVATION.belongsTo(models.ROOM, {
+      as: 'hotel_name_foreignkey',
       foreignKey: 'hotel_name', targetKey: 'hotel_name',
       onDelete: 'cascade'
-    });
-    
+    })
+    RESERVATION.belongsTo(models.ROOM, {
+      as: 'hotel_location_foreignkey',
+      foreignKey: 'hotel_location', targetKey: 'hotel_location',
+      onDelete: 'cascade'
+    })
     RESERVATION.belongsTo(models.ROOM, {
       foreignKey: 'room_number', targetKey: 'room_number',
       onDelete: 'cascade'

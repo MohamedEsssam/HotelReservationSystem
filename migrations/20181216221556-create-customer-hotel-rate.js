@@ -2,20 +2,18 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('CUSTOMER_HOTEL_RATEs', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
+     
       customer_username: {
         type: Sequelize.STRING
+        
       },
       hotel_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        
       },
       hotel_location: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        
       },
       rate: {
         type: Sequelize.INTEGER

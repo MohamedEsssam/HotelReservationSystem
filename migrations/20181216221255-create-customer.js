@@ -2,12 +2,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('CUSTOMERs', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
+     
       name: {
         type: Sequelize.STRING
       },
@@ -23,8 +18,10 @@ module.exports = {
       star_member: {
         type: Sequelize.BOOLEAN
       },
-      customer_username: {
-        type: Sequelize.STRING
+      username: {
+        type: Sequelize.STRING,
+        primaryKey:true,
+        allowNull:false
       },
       password: {
         type: Sequelize.STRING

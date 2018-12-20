@@ -2,20 +2,23 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('ROOMs', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
+     
       room_number: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        primaryKey:true,
+        allowNull:false
       },
       hotel_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        primaryKey:true,
+        allowNull:false
+        
       },
       hotel_location: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        primaryKey:true,
+        allowNull:false
+        
       },
       type: {
         type: Sequelize.STRING

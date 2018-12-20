@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     hotel_location:DataTypes.STRING,
     credit: DataTypes.FLOAT,
+    credit_card_number:DataTypes.STRING,
     telephone: DataTypes.INTEGER,
     email: DataTypes.STRING,
     stars: DataTypes.INTEGER,
