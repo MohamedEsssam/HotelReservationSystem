@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
     },
+    hotel_location: {
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
     check_in_date: DataTypes.DATE,
     check_out_date: DataTypes.DATE,
     appear: DataTypes.BOOLEAN

@@ -4,6 +4,8 @@ const customerPage=require('./controller/customerPageController')
 const hotelOwnerPage=require('./controller/hotelOwnerPageController')
 const brokerPage=require('./controller/brokerPageController')
 const storeController=require('./controller/storePageController')
+const homeController = require('./controller/homePageController')
+
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -25,7 +27,9 @@ app.get('/hotelOwner/:username', hotelOwnerPage)
 app.get('/broker/:username', brokerPage)
 
 //login page
-app.post('/',loginController);
+app.post('/login',loginController);
+
+app.get('/', homeController)
 
 app.post('/store/user', storeController)
 

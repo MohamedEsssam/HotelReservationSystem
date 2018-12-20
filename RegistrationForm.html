@@ -25,14 +25,10 @@
         </p>
       
         <p>
-                <label for="Fname">Firstname</label>
-                <input id="Fname"v-model="Fname"type="text"name="Fname">
+                <label for="name">name</label>
+                <input id="name"v-model="name"type="text"name="name">
               </p>
       
-              <p>
-                    <label for="Lname">Lastname</label>
-                    <input id="Lname"v-model="Lname"type="text"name="Lname">
-                  </p>
     
                   <p>
                         <label for="ssn">SSN</label>
@@ -92,9 +88,9 @@
     options: [{ text: 'Hotel owner', value: 'HOTEL_OWNER' },
               { text: 'Customer', value: 'CUSTOMER' }],
 
-    Uname:    null,
-    Lname:    null,
-    Fname:    null,
+    username:    null,
+   
+    name:    null,
     email:    null,
     ssn:      null,
     phone:    null,
@@ -106,24 +102,18 @@
   methods: {
     checkForm: function (e) {
       this.errors = [];
-
-      if (!this.Uname) {
-        this.errors.push("Name required.");
-      } else if (!this.validUserName(this.Uname)) {
+      if (!this.username) {
+        this.errors.push("User name required.");
+      } else if (!this.validUserName(this.username)) {
         this.errors.push('Valid Username required.');
       }
 
-      if (!this.Fname) {
-        this.errors.push("Name required.");
-      } else if (!this.validUserName(this.Fname)) {
-        this.errors.push('Valid Firstname required.');
+      if (!this.name) {
+        this.errors.push("First name required.");
+      } else if (!this.validUserName(this.name)) {
+        this.errors.push('Valid name required.');
       }
 
-      if (!this.Lname) {
-        this.errors.push("Name required.");
-      } else if (!this.validUserName(this.Lname)) {
-        this.errors.push('Valid Lastname required.');
-      }
 
       if (!this.ssn) {
         this.errors.push('SSN required.');
@@ -175,15 +165,12 @@
     const user_name = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
        return user_name.test(Username);
    },
-   validFirstName: function(Firstname){
+   validFirstName: function(name){
     const name = /^[a-zA-Z]+[a-zA-Z]*$/;
-        return name.test(Firstname);
+        return name.test(name);
    },
 
-   validLastName: function(Lastname){
-    const name = /^[a-zA-Z]+[a-zA-Z]*$/;
-        return name.test(Lastname);
-   },
+
     validEmail: function (email) {
         const email_check=/^[a-zA-Z0-9]+(@hotmail.com)$|^[a-zA-Z0-9]+(@gmail.com)$|^[a-zA-Z0-9]+(@yahoo.com)$/;
           return email_check.test(email);

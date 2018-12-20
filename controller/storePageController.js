@@ -1,18 +1,20 @@
 const path = require('path')
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
 
     console.log('************************')
    const db = require('../models/index')
    
-   const { username,Fname,Lname,ssn,email,phone,password,credit} = req.body;
+   const { username,name,ssn,email,phone,password,credit} = req.body;
+   console.log("GSDGSDG");
+   console.log(username+ ' ' + name+ ' ' + ssn+ ' ' + email+ ' ' + phone+ ' ' + password + ' ' + credit)
    
    const UserModel = db[req.body.selectedType]
 
-   //UserModel.create({ name: 'ddd', username: 'dragon', passwor:'123'}).then(customer => {
+   UserModel.create(req.body).then(customer => {
     // you can now access the newly created task via the variable task
     res.redirect('/')
-  //})
+  })
 
    
 };

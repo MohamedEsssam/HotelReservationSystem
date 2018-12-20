@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true,
     },
+    hotel_location: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+    },
     room_number: DataTypes.INTEGER,
     broker_username: DataTypes.STRING
   },{});

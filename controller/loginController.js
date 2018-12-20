@@ -1,5 +1,5 @@
 const path = require('path')
-const bcrypt = require('bcrypt')
+
 const bodyParser = require('body-parser')
 
 module.exports = (req, res) => {
