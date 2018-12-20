@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     credit: DataTypes.FLOAT,
+    credit_card_number:DataTypes.STRING,
     telephone: DataTypes.INTEGER,
     email: DataTypes.STRING,
     stars: DataTypes.INTEGER,

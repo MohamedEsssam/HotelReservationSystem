@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     telephone: DataTypes.INTEGER,
     address: DataTypes.STRING,
     email: DataTypes.STRING,
-    hotel_owner_username:{
+    username:{
       type:DataTypes.STRING,
       primaryKey:true
     } ,

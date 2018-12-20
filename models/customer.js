@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     credit_card: DataTypes.STRING,
     star_member: DataTypes.BOOLEAN,
-    customer_username:{
+    username:{
       type:DataTypes.STRING,
       primaryKey:true
     } ,

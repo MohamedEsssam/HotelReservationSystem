@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const BROKER = sequelize.define('BROKER', {
     name: DataTypes.STRING,
     credit: DataTypes.FLOAT,
-    broker_username:{
+    username:{
       type:DataTypes.STRING,
       primaryKey:true
     } ,

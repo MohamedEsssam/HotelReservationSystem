@@ -5,6 +5,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
+    payment_date:{
+      type:DataTypes.DATE,
+      primaryKey: true
+    },
     hotel_name: {
       type: DataTypes.STRING,
       primaryKey: true
@@ -17,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
     broker_username: DataTypes.STRING
   }, {});
   PAYMENT.associate = function (models) {
-    PAYMENT.belongsTo(models.HOTEL, {
+    PAYMENT.belongsTo(models.ROOM, {
       foreignKey: 'hotel_name', targetKey: 'hotel_name',
       onDelete: 'cascade'
     });
-    PAYMENT.belongsTo(models.HOTEL, {
+    PAYMENT.belongsTo(models.ROOM, {
       foreignKey: 'hotel_location', targetKey: 'hotel_location',
       onDelete: 'cascade'
     });
