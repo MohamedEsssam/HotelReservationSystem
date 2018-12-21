@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
    const HotelModel = db['HOTEL']
 
    const hotelOwner = await HotelOwnerModel.findOne({ where: {username : req.params.username}})
-   const hotelOwnerHotels = await HOTEL.findAll({where : {hotel_owner_username : req.params.username}})
+   const hotelOwnerHotels = await HotelModel.findAll({where : {hotel_owner_username : req.params.username}})
    res.render('HotelOwnerPage', {hotelOwner, hotelOwnerHotels})
    
 };

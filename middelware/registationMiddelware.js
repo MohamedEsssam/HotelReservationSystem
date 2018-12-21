@@ -1,7 +1,8 @@
 const db=require('../models/index')
 
 module.exports=(req,res,next)=>{
-    db[req.selectedType].findOne({ where: { username : username } }).then(user => {
+    const {username} = req.body
+    db[req.body.selectedType].findOne({ where: { username : username } }).then(user => {
         if (user) {
                 res.redirect('/register')
         }
