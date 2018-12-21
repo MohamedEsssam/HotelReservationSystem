@@ -5,18 +5,15 @@ module.exports = async (req, res) => {
     console.log('************************')
    const db = require('../models/index')
    const BrokerModel = db['BROKER']
+   const hotelModel = db['HOTEL']
+   const customerModel = db['CUSTOMER'] 
 
-//    //btroo7 lel page 2li feeha 7aaccess 2l database
-//    UserModel.create({ name: 'dragon', username: 'dragon', passwor:'123'}).then(customer => {
-//     // you can now access the newly created task via the variable task
-//     res.redirect('/')
-//   })
 
-    BrokerModel.findOne({ where: {username : req.params.username}}).then(broker => {
-
-        console.log(broker.username + " " + broker.password)
-        res.redirect('/')
-
-    })
+   const broker =  await BrokerModel.findOne({ where: {username : req.params.username}})
+   const approvedHotels = await hotelModel.findAll({where: {approval:1}})
+   const unapprovedHotels = await hotelModel.findAndCountAll({where: {approval:0}})
+   const customers = await customerModel.findAll()
+//console.log(unapprovedHotels.count);
+   res.render('BrokerHomePage', {broker, approvedHotels, unapprovedHotels, customers})
    
 };
