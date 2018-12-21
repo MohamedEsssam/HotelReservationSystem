@@ -7,15 +7,35 @@ const storeController=require('./controller/storePageController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
 const approveReservationController = require('./controller/approveReservationPageController')
+const registrationValidationMiddelware=require('./middelware/registationMiddelware')
+const db=require('./models/index')
 
 
+const expressSession=require('express-session')
 const express = require('express')
 const expressEdge = require('express-edge')
 const bodyParser = require('body-parser')
 const path = require('path')
 //const db=require('./models/index')
+//The store that is used in storing the sessions in the database in a table named sessions
+const sequelizeStore=require('connect-session-sequelize')(expressSession.Store);
+
 
 const app = express()
+//initialize the store object
+const myStore=new sequelizeStore({
+    db:db.sequelize,
+    checkExpirationInterval:10*60*1000,//time to remove the expired session's records from the database
+    expiration:30*60*1000//the time for the sessions to expire
+});
+app.use(expressSession({
+    secret:"secret",
+    store:myStore
+}))
+//sync the database to create the session's table
+myStore.sync()
+
+app.listen(4000)
 
 app.set('views', path.resolve(__dirname) + '\\views')
 app.use(bodyParser.json())
@@ -37,7 +57,8 @@ app.post('/login',loginController);
 
 app.get('/', homeController)
 
-app.post('/store/user', storeController)
+app.post('/store/user', registrationValidationMiddelware,storeController)
+
 
 app.get('/hotelInfo/:hotel_name/:hotel_location', hotelInfoController)
 

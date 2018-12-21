@@ -19,8 +19,8 @@ module.exports = {
       credit_card_number:{
         type:Sequelize.STRING
       },
-      telephone: {
-        type: Sequelize.INTEGER
+      telephone:{
+        type:Sequelize.STRING
       },
       email: {
         type: Sequelize.STRING
