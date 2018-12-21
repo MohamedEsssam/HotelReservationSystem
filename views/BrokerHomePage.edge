@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 
+
   <style>
       .reject{
           background: black;
           color: white;
           border-radius: 15px;
           border: 1px black solid;
-      }  
+      }
       .accept{
           background: black;
           color: white;
@@ -25,12 +25,12 @@
           border: 1px black solid;
       }
       .information{
-          font-weight: bold; 
+          font-weight: bold;
       }
       ul li.hotel{
         position: relative;
         border:solid 1px black;
-        list-style-type: none;    
+        list-style-type: none;
         width: 350px;
         height: 350px;
       }
@@ -65,12 +65,12 @@
       }
       .customer{
           margin-top:-415px;
-          margin-left:800px; 
+          margin-left:800px;
       }
       ul li.User{
         position: relative;
         border:solid 1px black;
-        list-style-type: none;    
+        list-style-type: none;
         width: 400px;
        height: 150px;
        background: black;
@@ -94,9 +94,15 @@
      .CInfo{
          position: absolute;
          margin-left: 950px;
-         margin-top: -40px;
+         margin-top: -400px;
      }
-          
+     .container{
+       position: relative;
+       width:600px;
+       margin-left:750px;
+       margin-top: -350px;
+     }
+
   </style>
 
 </head>
@@ -107,7 +113,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>                        
+                      <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Botato Booking</a>
                   </div>
@@ -118,12 +124,17 @@
                     <ul class="nav navbar-nav navbar-right" id="notification">
                             <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <label for=>Notification</label> 
-                                        <span class="badge" id="count">11</span>
+                                            <label for=>Notification</label>
+                                    <span class="badge" id="count">{{unapprovedHotels.count}}</span>
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu"style="width: 335px;">
+                                      @each(hotel in unapprovedHotels.rows)
+                                      <span class="information"> want to add {{hotel.hotel_name}} hotel</span>
+                                      <input type="button" value="Reject" class="reject">
+                                      <input type="button" value="Accept" class="accept">
+                                      @endeach
                                      </ul>
-                                  </li>            
+                                  </li>
                       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Broker</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
@@ -134,25 +145,41 @@
               <div>
                   <h2 class="Info">Hotel Info</h2>
                     <ul>
+                      <li class="hotel" id="hotel">
+                        @each(hotel in approvedHotels)
+                          <img src="" alt="" width="350" height="200">
+                          <p class="hotelname">{{hotel.hotel_name}}</p>
+                          <p class="rate">{{hotel.rate}}</p>
+                          <p class="questions">If you want to block{{hotel.hotel_name}}?</p>
+                          <button class="block" id="block"></button>
+                        @endeach
+                      </li>
                        </ul>
                 </div>
-             
+
                 <h2 class="CInfo">Customer Info</h2>
-                <div class="customer">
-                        
-                        <a href="#" style="text-decoration:none">
-                        <ul></ul>
-                        </a>
+                <div class="container">
+	<div class="row" id="">
+		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+    	 <div class="well profile">
+          @each(customer in customers)
+                    <h2>{{customer.name}}</h2>
+                    <p><strong>Email : {{customer.email}} </strong> </p>
+                    <p><strong>phone : {{customer.phone}} </p>
+                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+          @endeach
                 </div>
-                
-    
+            </div>
+    	   </div>
+		  </div>
       <script>
             var count = document.getElementById("count");
             document.getElementById("notification").addEventListener("click", function (){
                 count.innerHTML=0;});
-
-
+                document.getElementById("block").addEventListener("click",function(){
+                      document.getElementById("block").style.content="unblock";
+                })
       </script>
-                
+
 </body>
-</html> 
+</html>

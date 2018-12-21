@@ -3,6 +3,6 @@ module.exports = (req, res) => {
     const { username, password,accountType } = req.body;
   
     //res.render('register')
-    res.sendFile(path.resolve(__dirname, '../Login.html'))
+    res.sendFile(path.resolve(__dirname, '../views/LoginForm.html'))
     
 };
