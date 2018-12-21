@@ -1,0 +1,243 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="" />
+    <script src=""></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+      .reject{
+          background: black;
+          color: white;
+          border-radius: 15px;
+          border: 1px black solid;
+      }
+      .accept{
+          background: black;
+          color: white;
+          border-radius: 15px;
+          border: 1px black solid;
+      }
+      .information{
+          font-weight: bold;
+      }
+
+      .RH{
+          margin-top:200px;
+          margin-left: 500px;
+      }
+
+     .H{
+         position: absolute;
+         margin-left: 950px;
+         margin-top: -40px;
+     }
+     .container{
+       width:600px;
+       margin-left:750px;
+     }
+     .search{
+      width:100px;
+      margin-left:750px;
+     }
+
+  </style>
+
+</head>
+<body>
+        <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Botato Booking</a>
+                  </div>
+                  <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="#">Home</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" id="reserve">
+                            <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <label for=>Previous Reservations</label>
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu"style="width: 335px;">
+                                     </ul>
+                                  </li>
+                      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+
+              <div>
+                <form class="" action="index.html" method="post">
+                  <label>Search for hotel</label>
+                   <input id="search"type="search"name="search" placeholder="Search for hotel">
+
+                   <label>check in</label>
+                      <select class="" name="">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                             <option value="6">6</option>
+                             <option value="7">7</option>
+                             <option value="8">8</option>
+                             <option value="9">9</option>
+                             <option value="10">10</option>
+                             <option value="11">11</option>
+                             <option value="12">12</option>
+                             <option value="13">13</option>
+                             <option value="14">14</option>
+                             <option value="15">15</option>
+                             <option value="16">16</option>
+                             <option value="17">17</option>
+                             <option value="18">18</option>
+                             <option value="19">19</option>
+                             <option value="20">20</option>
+                             <option value="21">21</option>
+                             <option value="22">22</option>
+                             <option value="23">23</option>
+                             <option value="24">24</option>
+                             <option value="25">25</option>
+                             <option value="26">26</option>
+                             <option value="27">27</option>
+                             <option value="28">28</option>
+                             <option value="29">29</option>
+                             <option value="30">30</option>
+                             <option value="31">31</option>
+                      </select>
+                  <select class="" name="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                  <select class="" name="">
+                    <option value="2018">2019</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2019</option>
+                    <option value="2021">2019</option>
+                    <option value="2022">2019</option>
+                    <option value="2023">2019</option>
+                    <option value="2024">2019</option>
+                    <option value="2025">2019</option>
+                    <option value="2026">2019</option>
+                    <option value="2027">2019</option>
+                    <option value="2028">2019</option>
+                    <option value="2029">2019</option>
+                    <option value="2030">2019</option>
+                  </select>
+
+                   <label>check out</label>
+                      <select class="" name="">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                             <option value="6">6</option>
+                             <option value="7">7</option>
+                             <option value="8">8</option>
+                             <option value="9">9</option>
+                             <option value="10">10</option>
+                             <option value="11">11</option>
+                             <option value="12">12</option>
+                             <option value="13">13</option>
+                             <option value="14">14</option>
+                             <option value="15">15</option>
+                             <option value="16">16</option>
+                             <option value="17">17</option>
+                             <option value="18">18</option>
+                             <option value="19">19</option>
+                             <option value="20">20</option>
+                             <option value="21">21</option>
+                             <option value="22">22</option>
+                             <option value="23">23</option>
+                             <option value="24">24</option>
+                             <option value="25">25</option>
+                             <option value="26">26</option>
+                             <option value="27">27</option>
+                             <option value="28">28</option>
+                             <option value="29">29</option>
+                             <option value="30">30</option>
+                             <option value="31">31</option>
+                      </select>
+                  <select class="" name="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                  <select class="" name="">
+                    <option value="2018">2019</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2019</option>
+                    <option value="2021">2019</option>
+                    <option value="2022">2019</option>
+                    <option value="2023">2019</option>
+                    <option value="2024">2019</option>
+                    <option value="2025">2019</option>
+                    <option value="2026">2019</option>
+                    <option value="2027">2019</option>
+                    <option value="2028">2019</option>
+                    <option value="2029">2019</option>
+                    <option value="2030">2019</option>
+                  </select>
+                  <label>Enter Number of Rooms</label>
+                  <select class="" name="">
+                         <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                         <option value="5">5</option>
+                  </select>
+                  <label>Enter Room Type</label>
+                  <select class="" name="">
+                         <option value="s">Single</option>
+                         <option value="d">Double</option>
+                         <option value="t">Triple</option>
+                         <option value="q">Quadrable</option>
+                  </select>
+                  <input type="button" name="" value="search">
+                  </form>
+                </div>
+
+
+
+
+
+              <div>
+                  <h2 class="RH">Recommended Hotels</h2>
+                    <ul>
+                       </ul>
+              </div>
+</body>
+</html>

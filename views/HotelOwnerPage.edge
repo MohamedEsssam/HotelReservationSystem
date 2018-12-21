@@ -13,13 +13,13 @@
     <style>
      .Info{
          position: relative;
-         margin-left: 1000px;
-         margin-top: -400px;
+         margin-left:1000px;
+         margin-top: -390px;
      }
      ul li.hotel{
         position: relative;
-        margin-left: 50px;
-        margin-top : -300px;
+        margin-left: 900px;
+        margin-top : 20px;
         border:solid 1px black;
         list-style-type: none;    
         width: 350px;
@@ -53,7 +53,7 @@
                       <li class="active"><a href="#">Home</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" id="notification">
-                      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Ownername</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{hotelOwner.name}}</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                   </div>
@@ -93,8 +93,18 @@
             <input type="button" value="Add hotel">
 
             <div>
-                    <h2 class="Info">Hotel Info</h2>
+                <h2 class="Info">Owner's hotel</h2>
                       <ul>
+                            <li class="hotel" id="hotel">
+                                    @each(hotel in hotelOwnerHotels)
+                                      <img src="" alt="" width="350" height="200">
+                                      <p class="hotelname">{{hotel.hotel_name}}</p>
+                                      <p class="rate">{{hotel.rate}}</p>
+                                      <p class="questions">If you want to block{{hotel.hotel_name}}?</p>
+                                      <button class="block" id="block"></button>
+                                    @endeach
+                                  </li>
+                              
                          </ul>
                   </div>
                

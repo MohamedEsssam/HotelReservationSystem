@@ -3,11 +3,14 @@ const loginController=require('./controller/loginController')
 const customerPage=require('./controller/customerPageController')
 const hotelOwnerPage=require('./controller/hotelOwnerPageController')
 const brokerPage=require('./controller/brokerPageController')
+const hotelManagerPage=require('./controller/hotelManagerPageController')
 const storeController=require('./controller/storeUserController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
+
 const approveReservationController = require('./controller/approveReservationPageController')
 const registrationValidationMiddelware=require('./middelware/registationMiddelware')
+
 const db=require('./models/index')
 
 
@@ -57,6 +60,8 @@ app.get('/customer/:username', customerPage)
 app.get('/hotel_owner/:username', hotelOwnerPage)
 //broker home page(zmeeri)
 app.get('/broker/:username', brokerPage)
+//hotel home page
+app.get('/hotelManager/:username', hotelManagerPage)
 
 //login page
 app.post('/login',loginController);
