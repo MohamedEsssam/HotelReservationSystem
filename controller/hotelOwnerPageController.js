@@ -5,14 +5,10 @@ module.exports = async (req, res) => {
     console.log('************************')
   const db = require('../models/index')
    const HotelOwnerModel = db['HOTEL_OWNER']
+   const HotelModel = db['HOTEL']
 
-   await HotelOwnerModel.findOne({ where: {username : req.params.username}}).then(hotelOwner => {
-
-        console.log(hotelOwner.username + " " + hotelOwner.password)
-        //render with the data
-        //res.render('HotelOwnerHomePage', {hotelOwner})
-        res.redirect('/')
-
-    })
+   const hotelOwner = await HotelOwnerModel.findOne({ where: {username : req.params.username}})
+   const hotelOwnerHotels = await HOTEL.findAll({where : {hotel_owner_username : req.params.username}})
+   res.render('HotelOwnerPage', {hotelOwner, hotelOwnerHotels})
    
 };

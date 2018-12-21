@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
     },
-    hotel_location:DataTypes.STRING,
+    hotel_location: {
+     type: DataTypes.STRING,
+  primaryKey:true
+    },
     credit: DataTypes.FLOAT,
     credit_card_number:DataTypes.STRING,
     telephone: DataTypes.STRING,
@@ -15,7 +18,16 @@ module.exports = (sequelize, DataTypes) => {
     premium: DataTypes.BOOLEAN,
     hotel_owner_username: DataTypes.STRING,
     suspended: DataTypes.BOOLEAN,
-    approval: DataTypes.BOOLEAN
+    approval: DataTypes.BOOLEAN,
+    hotel_username: {
+      type:DataTypes.STRING,
+      unique:true
+    },
+    hotel_password:{
+      type:DataTypes.STRING,
+      unique:true
+      
+    }
   }, {});
   HOTEL.associate = function (models) {
     HOTEL.belongsTo(models.HOTEL_OWNER, {
