@@ -9,6 +9,9 @@ module.exports = {
       ssn: {
         type: Sequelize.INTEGER
       },
+      telephone:{
+        type:Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
       },
