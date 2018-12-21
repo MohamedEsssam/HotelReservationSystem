@@ -10,7 +10,19 @@
 </head>
 <body>
  
-        <form id="app"@submit="checkForm" action="/store/user"method="post"novalidate="true" >
+  @if(errors.length>0) 
+  <ul class="lisgroup">
+  @each(error in errors)  
+  <li class="list-group-item text-danger">{{error}} </li>
+  @endeach
+  </ul>  
+  @endif
+
+  <div id="Error">
+     
+  </div>
+
+  <form onsubmit="" >
       
         <p v-if="errors.length">
           <b>Please correct the following Input(s):</b>
@@ -78,124 +90,79 @@
       </form>
 
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
       
       <script>
-     const app = new Vue({
-        el: '#app',
- data: {
-    errors:    [],
-
-    selected: '',
-    options: [{ text: 'Hotel owner', value: 'HOTEL_OWNER' },
-              { text: 'Customer', value: 'CUSTOMER' }],
-
-    username:    null,
-   
-    name:    null,
-    email:    null,
-    ssn:      null,
-    phone:    null,
-    password: null,
-    confirmPassword: null,
-    credit  : null
-
-  },
-  methods: {
-    checkForm: function (e) {
-      this.errors = [];
-      if (!this.username) {
-        this.errors.push("User name required.");
-      } else if (!this.validUserName(this.username)) {
-        this.errors.push('Valid Username required.');
-      }
-
-      if (!this.name) {
-        this.errors.push("First name required.");
-      } else if (!this.validUserName(this.name)) {
-        this.errors.push('Valid name required.');
-      }
+    var check = 0;
+    //user input
+    var  name = document.getElementById("name").value;
+    var username = document.getElementById("username").value;
+    var ssn = document.getElementById("ssn").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    var credit = document.getElementById("credit").value; 
 
 
-      if (!this.ssn) {
-        this.errors.push('SSN required.');
-      } else if (!this.validSSN(this.ssn)) {
-        this.errors.push('Valid SSN required.');
-      }
-
-      if (!this.email) {
-        this.errors.push('Email required.');
-      } else if (!this.validEmail(this.email)) {
-        this.errors.push('Valid Email required.');
-      }
-
-      if (!this.phone) {
-        this.errors.push('Phone required.');
-      } else if (!this.validPhone(this.phone)) {
-        this.errors.push('Valid Phone required.');
-      }
-
-      if (!this.password) {
-        this.errors.push('Password required.');
-      } else if (!this.validPasswod(this.password)) {
-        this.errors.push('Valid Password required.');
-      }
-
-      if (!this.confirmPassword) {
-        this.errors.push('Confirm Password required.');
-      } else if (this.confirmPassword !=this.password ) {
-        this.errors.push("Two password don't match.");
-      }
-
-      if (!this.credit) {
-        this.errors.push('Credit Card required.');
-      } else if (!this.validCredit(this.credit)) {
-        this.errors.push('Valid Credit Card required.');
-      }
-
-
-
-
-      if (!this.errors.length) {
-        return true;
-      }
-
-      e.preventDefault();
-    },
-
-   validUserName: function(Username){
-    const user_name = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
-       return user_name.test(Username);
-   },
-   validFirstName: function(name){
+    //Regex for user input
     const name = /^[a-zA-Z]+[a-zA-Z]*$/;
-        return name.test(name);
-   },
+    const user_name = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
+    const email_check=/^[a-zA-Z0-9]+(@hotmail.com)$|^[a-zA-Z0-9]+(@gmail.com)$|^[a-zA-Z0-9]+(@yahoo.com)$/;
+    const pass_check=/^[\w]{8,}/;
+    const phone_check=/^[0-9]{11}$/;
+    const credit_check = /^[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}$/;
+    
+    //check validation of input
+    if(!name.test(fname)){
+        document.getElementById("fn").innerHTML="-Invalid First name";
+         check++;
+    }else document.getElementById("fn").innerHTML="";
 
+    if(!name.test(lname)){
+        document.getElementById("ln").innerHTML="-Invalid Last name";
+        check++;
+   }else document.getElementById("ln").innerHTML="";
+   if (! user_name.test(uname)){
+    document.getElementById("cs").innerHTML="-Invalid User name";
+    check++;
+   }else document.getElementById("cs").innerHTML="";
 
-    validEmail: function (email) {
-        const email_check=/^[a-zA-Z0-9]+(@hotmail.com)$|^[a-zA-Z0-9]+(@gmail.com)$|^[a-zA-Z0-9]+(@yahoo.com)$/;
-          return email_check.test(email);
-    },
-    validPasswod: function(Passowrd){
-        const pass_check=/^[\w]{8,}/;
-          return pass_check.test(Passowrd);
-    },
-    validPhone: function(Phone){
-        const phone_check=/^[0-9]{11}$/;
-           return phone_check.test(Phone);
-    },
-    validSSN: function(SSN){
-        const ssn_check=/^[0-9]{5,}$/;
-          return ssn_check.test(SSN);
-    },
-    validCredit: function(Credit){
-        const credit_check = /^[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}$/;
-            return credit_check.test(Credit);
-    }
-  }
-})
+   if(!phone_check.test(phone)){
+    document.getElementById("ph").innerHTML="-Invalid phone number";
+    check++;
+   }else document.getElementById("ph").innerHTML="";
+   
+   if(!credit_check.test(credit)){
+    document.getElementById("cc").innerHTML="-Invalid credit card";
+    check++;
+   }else document.getElementById("cc").innerHTML="";
+
+   if(!email_check.test(email)){
+    document.getElementById("em").innerHTML="-Invalid Email";
+    check++;
+   }else document.getElementById("em").innerHTML="";
+    if(!pass_check.test(pass)){
+     document.getElementById("pa").innerHTML="-Invalid Password";
+     check++;
+    }else document.getElementById("pa").innerHTML="";
+    if(pass!=cpass){
+    document.getElementById("pa1").innerHTML="-Password doesn't match";
+     check++;
+    }else document.getElementById("pa1").innerHTML="";
+   if(check>0){
+      document.getElementById("Error").style.display="block";
+   console.log("false"+check);
+    return false;
+   }
+   else {console.log("true"); document.getElementById("Error").style.display="none"; return true;}
+
        </script>
      
+     <script>
+     
+     </script>
 
 </body>
 </html>
