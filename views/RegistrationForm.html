@@ -9,81 +9,6 @@
     <script src=""></script>
 </head>
 <body>
-<<<<<<< HEAD
-    <h2>Welcome To Our Booking Site</h2>
-    <div>
-        <div id="Error">
-            <h3 id="cs"></h3>
-            <h3 id="fn"></h3>
-            <h3 id="ln"></h3>
-            <h3 id="ss"></h3>
-            <h3 id="em"></h3>
-            <h3 id="ph"></h3>
-            <h3 id="pa"></h3>
-            <h3 id="pa1"></h3>
-            <h3 id="cc"></h3>
-            <h3></h3>
-        </div>
-        @if(errors.length>0)
-        @each(error in errors) 
-                <ul class="lisgroup">  
-                <li class="list-group-item text-danger">{{error}} </li>
-                </ul>  
-        @endeach
-        @endif
-        <form  action="/store/user" onsubmit="return validation()">
-        <!--for customer Or owner-->
-        <div style="font-weight: bold;">
-            <select name="" id="selectedType" required>
-              <option disabled>Choose one</option>
-              <option value="HOTEL_OWNER">Hotel owner</option>
-              <option value="CUSTOMER">Customer</option>
-            </select>   
-        </div><br><br>
-        <!--for user inputs-->
-            <input type="text" placeholder="Customer Or Owner" class="registration_form" id="uname" name="username" required><br><br>
-            <input type="text" placeholder="First name" class="registration_form" id="fname" name="name" required>
-            <input type="text" placeholder="Last name" class="registration_form"  id="lname" required><br><br>
-            <input type="text" placeholder="SSN" class="registration_form"  id="ssn" name="ssn" required><br><br>
-            <input type="text" placeholder="Email" class="registration_form"  id="email" name="email" required><br><br>
-            <input type="text" placeholder="Phone number" class="registration_form"  id="phone" name="telephone" required><br><br>
-            <input type="password" placeholder="Password" class="registration_form"  id="pass" name="password" required><br><br>
-            <input type="password" placeholder="Confirm Password" class="registration_form"  id="cpass" required><br><br>
-            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" name="credit" required><br><br>
-            <input type="text" placeholder="Hotel name" style="display: none;" class="registration_form" id="hotel"     ><br>
-            <input type="submit" value="SignUp" id="button"><br><br>
-            <p style="position:relative; margin-left:90px">if you are member?<br><a href="UserCustomerSignin.html">singin</a> </p>
-        </form>
-        </div>
-         <!--for Error entering-->
-         
-    <script >
-    document.getElementById("Error").style.display="none";
-document.getElementById("button").addEventListener("click",validation);
-
-
-function validation(){
-    var check = 0;
-    //user input
-    var fname=document.getElementById("fname").value;
-    var lname=document.getElementById("lname").value;
-    var uname=document.getElementById("uname").value;
-    var ssn=document.getElementById("ssn").value;
-    var email=document.getElementById("email").value;
-    var phone=document.getElementById("phone").value;
-    var pass=document.getElementById("pass").value;
-    var cpass=document.getElementById("cpass").value;
-    var credit=document.getElementById("credit").value; 
-
-    //Regex for user input
-    const name = /^[a-zA-Z]+[a-zA-Z]*$/;
-    const user_name = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
-    const email_check=/^[a-zA-Z0-9]+(@hotmail.com)$|^[a-zA-Z0-9]+(@gmail.com)$|^[a-zA-Z0-9]+(@yahoo.com)$/;
-    const pass_check=/^[0-9]{1,}/;
-    const phone_check=/^[0-9]{1}$/;
-    const check_ssn =/^[0-9]{1,}$/;
-    const credit_check = /^[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}$/;
-=======
  
         <form id="app"@submit="checkForm" action="/store/user"method="post"novalidate="true" >
       
@@ -128,7 +53,6 @@ function validation(){
                         <label for="confirmPassword">Confirm Password</label>
                         <input id="confirmPassword"v-model="confirmPassword"type="confirmPassword"name="confirmPassword">
                       </p>
->>>>>>> parent of 78d4fbd... removed vue.js from the html code to be able to use edge templating engine
     
 
                   <p>
