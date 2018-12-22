@@ -3,12 +3,7 @@ const loginController=require('./controller/loginController')
 const customerPage=require('./controller/customerPageController')
 const hotelOwnerPage=require('./controller/hotelOwnerPageController')
 const brokerPage=require('./controller/brokerPageController')
-<<<<<<< HEAD
-const hotelManagerPage=require('./controller/hotelManagerPageController')
-const storeController=require('./controller/storeUserController')
-=======
 const storeController=require('./controller/storePageController')
->>>>>>> parent of 3594500... added flash messages to display errors
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
 
