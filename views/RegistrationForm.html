@@ -9,7 +9,6 @@
     
 </head>
 <body>
-<<<<<<< HEAD
     <h2>Welcome To Our Booking Site</h2>
     <div>
         <div id="Error">
@@ -24,7 +23,14 @@
             <h3 id="cc"></h3>
             <h3></h3>
         </div>
-        <form  method="POST" onsubmit="return validation()">
+        @if(errors.length>0)
+        @each(error in errors) 
+                <ul class="lisgroup">  
+                <li class="list-group-item text-danger">{{error}} </li>
+                </ul>  
+        @endeach
+        @endif
+        <form  action="/store/user" onsubmit="return validation()">
         <!--for customer Or owner-->
         <div style="font-weight: bold;">
             <select name="" id="selectedType" required>
@@ -34,16 +40,16 @@
             </select>   
         </div><br><br>
         <!--for user inputs-->
-            <input type="text" placeholder="Customer Or Owner" class="registration_form" id="uname" required><br><br>
-            <input type="text" placeholder="First name" class="registration_form" id="fname" required>
+            <input type="text" placeholder="Customer Or Owner" class="registration_form" id="uname" name="username" required><br><br>
+            <input type="text" placeholder="First name" class="registration_form" id="fname" name="name" required>
             <input type="text" placeholder="Last name" class="registration_form"  id="lname" required><br><br>
-            <input type="text" placeholder="SSN" class="registration_form"  id="ssn" required><br><br>
-            <input type="text" placeholder="Email" class="registration_form"  id="email" required><br><br>
-            <input type="text" placeholder="Phone number" class="registration_form"  id="phone" required><br><br>
-            <input type="password" placeholder="Password" class="registration_form"  id="pass" required><br><br>
+            <input type="text" placeholder="SSN" class="registration_form"  id="ssn" name="ssn" required><br><br>
+            <input type="text" placeholder="Email" class="registration_form"  id="email" name="email" required><br><br>
+            <input type="text" placeholder="Phone number" class="registration_form"  id="phone" name="telephone" required><br><br>
+            <input type="password" placeholder="Password" class="registration_form"  id="pass" name="password" required><br><br>
             <input type="password" placeholder="Confirm Password" class="registration_form"  id="cpass" required><br><br>
-            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" required><br><br>
-            <input type="text" placeholder="Hotel name" style="display: none;" class="registration_form" id="hotel" ><br>
+            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" name="credit" required><br><br>
+            <input type="text" placeholder="Hotel name" style="display: none;" class="registration_form" id="hotel"     ><br>
             <input type="submit" value="SignUp" id="button"><br><br>
             <p style="position:relative; margin-left:90px">if you are member?<br><a href="UserCustomerSignin.html">singin</a> </p>
         </form>
@@ -72,118 +78,11 @@ function validation(){
     const name = /^[a-zA-Z]+[a-zA-Z]*$/;
     const user_name = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
     const email_check=/^[a-zA-Z0-9]+(@hotmail.com)$|^[a-zA-Z0-9]+(@gmail.com)$|^[a-zA-Z0-9]+(@yahoo.com)$/;
-    const pass_check=/^[\w]{8,}/;
-    const phone_check=/^[0-9]{11}$/;
-    const check_ssn =/^[\w]{8,}$/;
+    const pass_check=/^[0-9]{1,}/;
+    const phone_check=/^[0-9]{1}$/;
+    const check_ssn =/^[0-9]{1,}$/;
     const credit_check = /^[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}$/;
     
-=======
- 
-  @if(errors.length>0) 
-  <ul class="lisgroup">
-  @each(error in errors)  
-  <li class="list-group-item text-danger">{{error}} </li>
-  @endeach
-  </ul>  
-  @endif
-
-  <div id="Error">
-     
-  </div>
-
-  <form onsubmit="" >
-      
-        <p v-if="errors.length">
-          <b>Please correct the following Input(s):</b>
-          <ul>
-            <li v-for="error in errors">{{ error }}</li>
-          </ul>
-        </p>
-      
-        <p>
-          <label for="name">Username</label>
-          <input id="username"v-model="username"type="text"name="username">
-        </p>
-      
-        <p>
-                <label for="name">name</label>
-                <input id="name"v-model="name"type="text"name="name">
-              </p>
-      
-    
-                  <p>
-                        <label for="ssn">SSN</label>
-                        <input id="ssn"v-model="ssn"type="ssn"name="ssn">
-                      </p>
-        <p>
-          <label for="email">Email</label>
-          <input id="email"v-model="email"type="email"name="email">
-        </p>
-      
-        <p>
-                <label for="phone">Phone</label>
-                <input id="phone"v-model="phone"type="phone"name="phone">
-              </p>
-            
-              <p>
-                    <label for="password">Password</label>
-                    <input id="password"v-model="password"type="password"name="password">
-                  </p>
-
-                  <p>
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input id="confirmPassword"v-model="confirmPassword"type="confirmPassword"name="confirmPassword">
-                      </p>
-    
-
-                  <p>
-                        <label for="credit">Credit card</label>
-                        <input id="credit"v-model="credit"type="credit"name="credit">
-                      </p>
-                    
-        <p>    
-                <select v-model="selected" @change="" id="selectedType" name="selectedType" required>
-                        <option disabled>choose one </option>
-                            <option v-for="option in options" v-bind:value="option.value">
-                              {{ option.text }}
-                            </option>
-                          </select>
-                          <span id="selected">Selected: {{ selected }}</span><br><br>    
-                   
-        </p>
-
-        <p>
-          <input type="submit"value="Submit">
-        </p>
-
-      </form>
-
-      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
-      
-      <script>
-    var check = 0;
-    //user input
-    var  name = document.getElementById("name").value;
-    var username = document.getElementById("username").value;
-    var ssn = document.getElementById("ssn").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirmPassword").value;
-    var credit = document.getElementById("credit").value; 
-
-
-    //Regex for user input
-    const name = /^[a-zA-Z]+[a-zA-Z]*$/;
-    const user_name = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
-    const email_check=/^[a-zA-Z0-9]+(@hotmail.com)$|^[a-zA-Z0-9]+(@gmail.com)$|^[a-zA-Z0-9]+(@yahoo.com)$/;
-    const pass_check=/^[\w]{8,}/;
-    const phone_check=/^[0-9]{11}$/;
-    const credit_check = /^[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}$/;
-    
->>>>>>> 2460c52b015d20d7d3f08fca17feb6c65cb9de4c
     //check validation of input
     if(!name.test(fname)){
         document.getElementById("fn").innerHTML="-Invalid First name";
@@ -198,13 +97,10 @@ function validation(){
     document.getElementById("cs").innerHTML="-Invalid User name";
     check++;
    }else document.getElementById("cs").innerHTML="";
-<<<<<<< HEAD
    if (! check_ssn.test(ssn)){
     document.getElementById("ss").innerHTML="-Invalid User SSN";
     check++;
    }else document.getElementById("ss").innerHTML="";
-=======
->>>>>>> 2460c52b015d20d7d3f08fca17feb6c65cb9de4c
 
    if(!phone_check.test(phone)){
     document.getElementById("ph").innerHTML="-Invalid phone number";
@@ -234,17 +130,7 @@ function validation(){
     return false;
    }
    else {console.log("true"); document.getElementById("Error").style.display="none"; return true;}
-<<<<<<< HEAD
 }
     </script>
-=======
-
-       </script>
-     
-     <script>
-     
-     </script>
-
->>>>>>> 2460c52b015d20d7d3f08fca17feb6c65cb9de4c
 </body>
 </html>

@@ -16,13 +16,17 @@ module.exports = (req, res) => {
     //btroo7 lel page 2li feeha 7aaccess 2l database
     UserModel.findOne({ where: { username: username, password: password } }).then((error, user) => {
 
+       console.log(username+" "+password+"\n")
+       console.log(user)
         if (user) {
+            console.log(user)
             req.session.username = user.username
-            console.log(req.session)
+            
             res.redirect('/' + userType + '/' + user.username)
         }
         // redirect to home -->Password is wrong
         else {
+            console.log("erreoeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee \n")
             req.flash('loginError','Incorrect username or password')
             res.redirect('/')
         }
