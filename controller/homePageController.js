@@ -3,8 +3,6 @@ module.exports = (req, res) => {
     const { username, password,accountType } = req.body;
   
     //res.render('register')
-    res.render('LoginForm',{
-        error:req.flash('loginError')
-    })
+    res.sendFile(path.resolve(__dirname, '../views/LoginForm.html'))
     
 };

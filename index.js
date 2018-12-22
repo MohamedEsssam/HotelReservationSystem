@@ -3,8 +3,12 @@ const loginController=require('./controller/loginController')
 const customerPage=require('./controller/customerPageController')
 const hotelOwnerPage=require('./controller/hotelOwnerPageController')
 const brokerPage=require('./controller/brokerPageController')
+<<<<<<< HEAD
 const hotelManagerPage=require('./controller/hotelManagerPageController')
 const storeController=require('./controller/storeUserController')
+=======
+const storeController=require('./controller/storePageController')
+>>>>>>> parent of 3594500... added flash messages to display errors
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
 
@@ -14,23 +18,17 @@ const registrationValidationMiddelware=require('./middelware/registationMiddelwa
 const db=require('./models/index')
 
 
-const authenticateLoggedIn=require('./middelware/authenticateLoggedIn')
 const expressSession=require('express-session')
 const express = require('express')
 const expressEdge = require('express-edge')
 const bodyParser = require('body-parser')
 const path = require('path')
-const connectFlash=require('connect-flash')
+//const db=require('./models/index')
 //The store that is used in storing the sessions in the database in a table named sessions
 const sequelizeStore=require('connect-session-sequelize')(expressSession.Store);
 
 
 const app = express()
-
-//adds flash function to the request object
-app.use(connectFlash());
-
-
 //initialize the store object
 const myStore=new sequelizeStore({
     db:db.sequelize,
@@ -46,7 +44,7 @@ myStore.sync()
 
 app.listen(4000)
 
-app.set('views', path.resolve(__dirname,'views'))
+app.set('views', path.resolve(__dirname) + '\\views')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(expressEdge)
