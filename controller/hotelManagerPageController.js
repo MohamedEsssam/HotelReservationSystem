@@ -1,3 +1,7 @@
+//check in for guests
+//blacklist customers if didnt check in
+//hotel info
+//pay for broker
 const path = require('path')
 
 module.exports = async (req, res) => {
@@ -5,15 +9,11 @@ module.exports = async (req, res) => {
     console.log('************************')
    const db = require('../models/index')
    const hotelModel = db['HOTEL']
-
-    await hotelModel.findOne({ where: {hotel_name : req.params.hotel_name, hotel_location : req.params.hotel_location}}).then(hotel => {
-
+   
+    const hotel=await hotelModel.findOne({ where: {hotel_username : req.params.username}})
         console.log(hotel.hotel_name + " " + hotel.hotel_location)
         
         //render with the data
-        //res.render('hotelInfoPage', {hotel})
-        res.redirect('/')
-
-    })
-   
+        res.render('hotelManagerPage', {hotel})
+        
 };

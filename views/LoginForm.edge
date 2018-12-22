@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
     body{
@@ -66,15 +70,20 @@ margin:6px;
 <body>
     
         <div id="container">
+                @if(error.length>0) 
+                <ul class="lisgroup">  
+                <li class="list-group-item text-danger">{{error}} </li>
+                </ul>  
+                @endif
         <form method="post" action="/login">
             <h1 style="text-align:center;font-weight: bold;font-family:Helvetica, Arial, sans-serif;">Signin</h1>
-            <select v-model="selected" @change="onChange()" name="selectedType" id="selectedType"  required>
+            <select v-model="selected" name="selectedType" id="selectedType"  required>
                     <option disabled>choose one </option>
-                        <option v-for="option in options" v-bind:value="option.value" name="typeSelect">
-                          {{ option.text }}
-                        </option>
+                        <option value="HOTEL_OWNER" name="typeSelect">Hotel owner</option>
+                        <option value="CUSTOMER" name="typeSelect">Customer</option>
+                        <option value="BROKER" name="typeSelect">Broker</option>
                       </select>
-                      <span id="selected" name="selected">Selected: {{ selected }}</span><br><br>    
+                      <span id="selected" name="selected"></span><br><br>    
             <input class="login_form" id="username" type="text" placeholder="User name or Email" name="username" required><br><br>
             <input class="login_form" id="password"  type="password" placeholder="Password" name="password" required><br><br>
             <input type="submit" id="submit" value="Signin" name="submit">
@@ -89,23 +98,7 @@ margin:6px;
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
    <script>
-    new Vue({
-  el: '#container',
-  data: {
-    selected: '',
-    options: [{ text: 'Hotel owner', value: 'HOTEL_OWNER' },
-              { text: 'Customer', value: 'CUSTOMER' },
-              { text: 'Broker', value: 'BROKER' }],
-  },
-  methods : {
-    onChange(){
-        if(this.selected=="Hotel owner"){
-                console.log("a7a");
-        }
-        
-    }
-  }
-})
+    
     </script>
   
 

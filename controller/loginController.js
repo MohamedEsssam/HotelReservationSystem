@@ -10,19 +10,22 @@ module.exports = (req, res) => {
     const db = require('../models/index')
     //const UserModel = sequelize['import'](path.join(__dirname, userType));
     //console.log(UserModel)
+    console.log(userType)
     const UserModel = db[userType]
-
+    
     //btroo7 lel page 2li feeha 7aaccess 2l database
-    UserModel.findOne({ where: { username : username, password:password } }).then(user => {
-       if (user) {
-                req.session.username=user.username
-                console.log(req.session)
-                res.redirect('/' + userType + '/' + user.username)
+    UserModel.findOne({ where: { username: username, password: password } }).then((error, user) => {
+
+        if (user) {
+            req.session.username = user.username
+            console.log(req.session)
+            res.redirect('/' + userType + '/' + user.username)
         }
-            // redirect to home -->Password is wrong
-            else {
-                res.redirect('/')
-            }
+        // redirect to home -->Password is wrong
+        else {
+            req.flash('loginError','Incorrect username or password')
+            res.redirect('/')
+        }
     })
 };
 

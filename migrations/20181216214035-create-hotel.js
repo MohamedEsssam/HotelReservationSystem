@@ -53,6 +53,17 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      hotel_username:{
+        type: Sequelize.STRING,
+        allowNull:false,
+        unique:true
+      },
+      hotel_password:{
+        type: Sequelize.STRING,
+        allowNull:false,
+        unique:true
+      
       }
     });
   },
