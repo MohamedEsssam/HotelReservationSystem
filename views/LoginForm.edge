@@ -98,7 +98,28 @@ margin:6px;
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
    <script>
+<<<<<<< HEAD:views/LoginForm.edge
     
+=======
+    new Vue({
+  el: '#container',
+  data: {
+    selected: '',
+    options: [{ text: 'Hotel owner', value: 'HOTEL_OWNER' },
+              { text: 'Customer', value: 'CUSTOMER' },
+              { text: 'Broker', value: 'BROKER' },
+              { text: 'Hotel Manager', value: 'HOTEL' },
+             ],
+  },
+  methods : {
+    onChange(){
+        if(this.selected=="Hotel owner"){
+        }
+        
+    }
+  }
+})
+>>>>>>> 0eb0a5147bc1fb373bb93b2b866896f0fe7d2836:views/LoginForm.html
     </script>
   
 
