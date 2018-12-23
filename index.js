@@ -66,7 +66,7 @@ app.get('/hotelManager/:username', hotelManagerPage)
 //login page
 app.post('/login',loginController);
 
-app.get('/botatoo.herokuapp.com', homeController)
+app.get('/bootatoo.herokuapp.com', homeController)
 
 app.post('/store/user', storeController)
 
