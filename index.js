@@ -4,7 +4,7 @@ const customerPage=require('./controller/customerPageController')
 const hotelOwnerPage=require('./controller/hotelOwnerPageController')
 const brokerPage=require('./controller/brokerPageController')
 const hotelManagerPage=require('./controller/hotelManagerPageController')
-const storeController=require('./controller/storeUserController')
+const storeController=require('./controller/storePageController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
 

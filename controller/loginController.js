@@ -8,18 +8,16 @@ module.exports = (req, res) => {
     const { username, password } = req.body;
     const userType = req.body.selectedType;
     const db = require('../models/index')
-    //const UserModel = sequelize['import'](path.join(__dirname, userType));
-    //console.log(UserModel)
+  
     console.log(userType)
     const UserModel = db[userType]
     
     //btroo7 lel page 2li feeha 7aaccess 2l database
-    UserModel.findOne({ where: { username: username, password: password } }).then((error, user) => {
+    UserModel.findOne({ where: { username: username, password: password } }).then(user => {
 
         if (user) {
             console.log("*******************************************")
             req.session.username = user.username
-            console.log(req.session)
             res.redirect('/' + userType + '/' + user.username)
         }
         // redirect to home -->Password is wrong
@@ -29,6 +27,3 @@ module.exports = (req, res) => {
         }
     })
 };
-
-
-
