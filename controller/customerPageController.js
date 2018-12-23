@@ -9,5 +9,5 @@ module.exports = async (req, res) => {
     const reservationModel = db['RESERVATION']
     const customer = await customerModel.findOne({ where: { username: req.params.username } })
     const reservations = await reservationModel.findAll({ where: { customer_username: req.params.username } })
-    req.render('CustomerHomePage',{customer,reservations})
+    res.render('CustomerHomePage',{customer,reservations})
 };

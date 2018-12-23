@@ -6,6 +6,7 @@ const brokerPage=require('./controller/brokerPageController')
 const storeController=require('./controller/storePageController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
+const hotelManagerPage=require('./controller/hotelManagerPageController')
 
 const approveReservationController = require('./controller/approveReservationPageController')
 const registrationValidationMiddelware=require('./middelware/registationMiddelware')

@@ -4,6 +4,6 @@ module.exports = (req, res) => {
   
    res.sendFile(path.resolve(__dirname,"../views/RegistrationForm.html"))
     //res.render('register')
-    res.sendFile(path.resolve(__dirname, '../views/RegistrationForm.html'))
+   // res.sendFile(path.resolve(__dirname, '../views/RegistrationForm.html'))
     
 };
