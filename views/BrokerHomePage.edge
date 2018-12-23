@@ -27,47 +27,56 @@
       .information{
           font-weight: bold;
       }
-      ul li.hotel{
+      .hotel{
         position: relative;
-        border:solid 1px black;
         list-style-type: none;
-        width: 350px;
-        height: 350px;
+        margin-left: 100px;  
       }
-      ul li .block::before{
+      #hotelinfo{
+        margin-left: 650px;
+        margin-top: -300px;
+      }
+       .block::before{
        content: "Block";
        color: white;
        text-align: center;
       }
-      ul li .block{
+       .block{
+         outline: none;
           content: "Block";
           background: black;
           color: white;
           border-radius: 15px;
           border: 1px black solid;
-          margin-left: 270px
+          margin-left: 5px
       }
-      ul li .hotelname{
+       .hotelname{
           font-size: 30px;
           font-weight: bold;
       }
-      ul li .rate{
+       .rate{
           font-size: 15px;
           font-weight: bold;
       }
-      ul li .question{
+      #Location{
+        font-size: 20px;
+        }
+        .Email{
+          
+        }
+       .question{
           width: 90px;
           margin-top: -15px;
           margin-left: 250px;
       }
       .Info{
-          margin-left: 40px
+          margin-left: 100px
       }
       .customer{
           margin-top:-415px;
           margin-left:800px;
       }
-      ul li.User{
+      .User{
         position: relative;
         border:solid 1px black;
         list-style-type: none;
@@ -76,33 +85,39 @@
        background: black;
        color: white;
       }
-      ul li .uname{
+       .uname{
         font-weight: bold;
       }
-      ul li .fname{
+       .fname{
         font-weight: bold;
       }
-      ul li .lname{
+       .lname{
         font-weight: bold;
         }
-      ul li .email{
+       .email{
         font-weight: bold;
         }
-      ul li .phone{
+       .phone{
           font-weight: bold;
         }
      .CInfo{
          position: absolute;
-         margin-left: 950px;
-         margin-top: -400px;
+         margin-left: 100px;
+         margin-top: 10px;
      }
      .container{
        position: relative;
-       width:600px;
-       margin-left:750px;
-       margin-top: -350px;
+       width:1200px;
+       margin-left:-220px;
+       margin-top: 80px;
      }
-
+     #line{
+       margin-top: 200px;
+       width: 900px;
+     }
+     #herf{
+       margin-left:1200px; 
+     }
   </style>
 
 </head>
@@ -141,23 +156,23 @@
                   </div>
                 </div>
               </nav>
-
+              <a href="#a" id="herf">Customer Info</a>
               <div>
                   <h2 class="Info">Hotel Info</h2>
-                    <ul>
-                      <li class="hotel" id="hotel">
-                        @each(hotel in approvedHotels)
-                          <img src="" alt="" width="350" height="200">
-                          <p class="hotelname">{{hotel.hotel_name}}</p>
-                          <p class="rate">{{hotel.rate}}</p>
-                          <p class="questions">If you want to block{{hotel.hotel_name}}?</p>
+                      <div class="hotel" id="hotel">  
+                          <img src="hotel.jpg" alt="" width="600" height="300">
+                          <div id="hotelinfo">
+                          <p class="hotelname">Botato hotel</p>
+                          <p class="Location" id="Location">Location : New York</p>
+                          <p class="Email">Email : adsda@dsssfa.com</p>
+                          <p class="phone">Phone : 012330123241</p>
+                          <p class="rate">Hotel rate : 5 Stars</p>
                           <button class="block" id="block"></button>
-                        @endeach
-                      </li>
-                       </ul>
+                    </div>
+                    <hr id="line">
+              </div>
                 </div>
-
-                <h2 class="CInfo">Customer Info</h2>
+                <a Name="a"><h2 class="CInfo">Customer Info</h2></a>
                 <div class="container">
 	<div class="row" id="">
 		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
@@ -166,12 +181,14 @@
                     <h2>{{customer.name}}</h2>
                     <p><strong>Email : {{customer.email}} </strong> </p>
                     <p><strong>phone : {{customer.phone}} </p>
-                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+                      <p><strong>SSN : {{customer.ssn}} </p>
+                    
           @endeach
                 </div>
             </div>
     	   </div>
 		  </div>
+  
       <script>
             var count = document.getElementById("count");
             document.getElementById("notification").addEventListener("click", function (){
