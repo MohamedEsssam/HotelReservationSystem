@@ -68,7 +68,7 @@ app.post('/login',loginController);
 
 app.get('/', homeController)
 
-app.post('/store/user', registrationValidationMiddelware,storeController)
+app.post('/store/user', storeController)
 
 
 app.get('/hotelInfo/:hotel_name/:hotel_location', hotelInfoController)

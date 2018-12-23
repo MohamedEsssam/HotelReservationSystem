@@ -5,9 +5,9 @@ module.exports = (req, res) => {
     console.log('************************')
    const db = require('../models/index')
    
-   const { username,name,ssn,email,phone,password,credit} = req.body;
+   const { username,name,ssn,email,telephone,password,credit} = req.body;
   
-   console.log(username+ ' ' + name+ ' ' + ssn+ ' ' + email+ ' ' + phone+ ' ' + password + ' ' + credit)
+   console.log(username+ ' ' + name+ ' ' + ssn+ ' ' + email+ ' ' + telephone+ ' ' + password + ' ' + credit + ' '+ req.body.selectedType)
    
    const UserModel = db[req.body.selectedType]
 

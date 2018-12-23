@@ -17,6 +17,7 @@ module.exports = (req, res) => {
     UserModel.findOne({ where: { username: username, password: password } }).then((error, user) => {
 
         if (user) {
+            console.log("*******************************************")
             req.session.username = user.username
             console.log(req.session)
             res.redirect('/' + userType + '/' + user.username)
