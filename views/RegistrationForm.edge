@@ -23,28 +23,24 @@
             <h3 id="cc"></h3>
             <h3></h3>
         </div>
-        <form method="POST" action="/store/user" onsubmit="return validation()">
+        <form  method="POST" onsubmit="return validation()" action="/store/user">
         <!--for customer Or owner-->
-        <div style="font-weight: bold;">
-            <select  v-model="selected" name="selectedType" required>
-              <option disabled>Choose one</option>
-              <option value="HOTEL_OWNER">Hotel owner</option>
-              <option value="CUSTOMER">Customer</option>
-            </select>   
-        </div><br><br>
+        <select name="selectedType" id="select" v-model="selectedType">
+                <option value="HOTEL_OWNER">Hotel owner</option>
+                <option value="CUSTOMER">Customer</option>
+                </select><br><br>
+       
         <!--for user inputs-->
-            <input type="text" placeholder="Customer Or Owner" class="registration_form" id="uname" name="username" required><br><br>
-            <input type="text" placeholder="First name" class="registration_form" id="fname" name="name" required>
-            <input type="text" placeholder="Last name" class="registration_form"  id="lname" required><br><br>
+            <input type="text" placeholder="Customer Or Owner" class="registration_form" id="username" name="username" required><br><br>
+            <input type="text" placeholder="First name" class="registration_form" id="Fullname" name="name" required>
             <input type="text" placeholder="SSN" class="registration_form"  id="ssn" name="ssn" required><br><br>
             <input type="text" placeholder="Email" class="registration_form"  id="email" name="email" required><br><br>
-            <input type="text" placeholder="Phone number" class="registration_form"  id="phone" name = "telephone" required><br><br>
-            <input type="password" placeholder="Password" class="registration_form"  id="pass" name="password" required><br><br>
-            <input type="password" placeholder="Confirm Password" class="registration_form"  id="cpass" required><br><br>
-            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" name="credit" required><br><br>
+            <input type="text" placeholder="Phone number" class="registration_form"  id="phone" name="phone" required><br><br>
+            <input type="password" placeholder="Password" class="registration_form"  id="pass" name="Password" required><br><br>
+            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" required><br><br>
             <input type="text" placeholder="Hotel name" style="display: none;" class="registration_form" id="hotel" ><br>
-            <input type="submit" value="SignUp" id="button" ><br><br>
-            <p style="position:relative; margin-left:90px">if you are member?<br><a href="/">signin</a> </p>
+            <input type="submit" value="SignUp" id="button"><br><br>
+            <p style="position:relative; margin-left:90px">if you are member?<br><a href="UserCustomerSignin.html">singin</a> </p>
         </form>
         </div>
          <!--for Error entering-->
@@ -57,9 +53,8 @@ document.getElementById("button").addEventListener("click",validation);
 function validation(){
     var check = 0;
     //user input
-    var fname=document.getElementById("fname").value;
-    var lname=document.getElementById("lname").value;
-    var uname=document.getElementById("uname").value;
+    var Fullname=document.getElementById("Fullname").value;
+    var username=document.getElementById("username").value;
     var ssn=document.getElementById("ssn").value;
     var email=document.getElementById("email").value;
     var phone=document.getElementById("phone").value;
@@ -77,52 +72,47 @@ function validation(){
     const credit_check = /^[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}$/;
     
     //check validation of input
-//     if(!name.test(fname)){
-//         document.getElementById("fn").innerHTML="-Invalid First name";
-//          check++;
-//     }else document.getElementById("fn").innerHTML="";
+    if(!name.test(Fullname)){
+        document.getElementById("fn").innerHTML="-Invalid First name";
+         check++;
+    }else document.getElementById("fn").innerHTML="";
 
-//     if(!name.test(lname)){
-//         document.getElementById("ln").innerHTML="-Invalid Last name";
-//         check++;
-//    }else document.getElementById("ln").innerHTML="";
-//    if (! user_name.test(uname)){
-//     document.getElementById("cs").innerHTML="-Invalid User name";
-//     check++;
-//    }else document.getElementById("cs").innerHTML="";
-//    if (! check_ssn.test(ssn)){
-//     document.getElementById("ss").innerHTML="-Invalid User SSN";
-//     check++;
-//    }else document.getElementById("ss").innerHTML="";
+   if (! user_name.test(username)){
+    document.getElementById("cs").innerHTML="-Invalid User name";
+    check++;
+   }else document.getElementById("cs").innerHTML="";
 
-//    if(!phone_check.test(phone)){
-//     document.getElementById("ph").innerHTML="-Invalid phone number";
-//     check++;
-//    }else document.getElementById("ph").innerHTML="";
+   if (! check_ssn.test(ssn)){
+    document.getElementById("ss").innerHTML="-Invalid User SSN";
+    check++;
+   }else document.getElementById("ss").innerHTML="";
+
+   if(!phone_check.test(phone)){
+    document.getElementById("ph").innerHTML="-Invalid phone number";
+    check++;
+   }else document.getElementById("ph").innerHTML="";
    
-//    if(!credit_check.test(credit)){
-//     document.getElementById("cc").innerHTML="-Invalid credit card";
-//     check++;
-//    }else document.getElementById("cc").innerHTML="";
+   if(!credit_check.test(credit)){
+    document.getElementById("cc").innerHTML="-Invalid credit card";
+    check++;
+   }else document.getElementById("cc").innerHTML="";
 
-//    if(!email_check.test(email)){
-//     document.getElementById("em").innerHTML="-Invalid Email";
-//     check++;
-//    }else document.getElementById("em").innerHTML="";
-//     if(!pass_check.test(pass)){
-//      document.getElementById("pa").innerHTML="-Invalid Password";
-//      check++;
-//     }else document.getElementById("pa").innerHTML="";
-//     if(pass!=cpass){
-//     document.getElementById("pa1").innerHTML="-Password doesn't match";
-//      check++;
-//     }else document.getElementById("pa1").innerHTML="";
-//    if(check>0){
-//       document.getElementById("Error").style.display="block";
-//    console.log("false"+check);
-//     return false;
-//    }
-//    else {console.log("true"); document.getElementById("Error").style.display="none"; return true;}
+   if(!email_check.test(email)){
+    document.getElementById("em").innerHTML="-Invalid Email";
+    check++;
+   }else document.getElementById("em").innerHTML="";
+    
+   if(!pass_check.test(pass)){
+     document.getElementById("pa").innerHTML="-Weak Password";
+     check++;
+    }else document.getElementById("pa").innerHTML="";
+    
+    if(check>0){
+      document.getElementById("Error").style.display="block";
+   console.log("false"+check);
+    return false;
+   }
+   else {console.log("true"); document.getElementById("Error").style.display="none"; return true;}
 }
     </script>
 </body>
