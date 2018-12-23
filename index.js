@@ -3,10 +3,10 @@ const loginController=require('./controller/loginController')
 const customerPage=require('./controller/customerPageController')
 const hotelOwnerPage=require('./controller/hotelOwnerPageController')
 const brokerPage=require('./controller/brokerPageController')
+const hotelManagerPage=require('./controller/hotelManagerPageController')
 const storeController=require('./controller/storePageController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
-const hotelManagerPage=require('./controller/hotelManagerPageController')
 
 const approveReservationController = require('./controller/approveReservationPageController')
 const registrationValidationMiddelware=require('./middelware/registationMiddelware')
@@ -14,17 +14,23 @@ const registrationValidationMiddelware=require('./middelware/registationMiddelwa
 const db=require('./models/index')
 
 
+const authenticateLoggedIn=require('./middelware/authenticateLoggedIn')
 const expressSession=require('express-session')
 const express = require('express')
 const expressEdge = require('express-edge')
 const bodyParser = require('body-parser')
 const path = require('path')
-//const db=require('./models/index')
+const connectFlash=require('connect-flash')
 //The store that is used in storing the sessions in the database in a table named sessions
 const sequelizeStore=require('connect-session-sequelize')(expressSession.Store);
 
 
 const app = express()
+
+//adds flash function to the request object
+app.use(connectFlash());
+
+
 //initialize the store object
 const myStore=new sequelizeStore({
     db:db.sequelize,
@@ -40,7 +46,7 @@ myStore.sync()
 
 app.listen(4000)
 
-app.set('views', path.resolve(__dirname) + '\\views')
+app.set('views', path.resolve(__dirname,'views'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(expressEdge)
