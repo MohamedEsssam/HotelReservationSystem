@@ -27,7 +27,8 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       available: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        default : 1 
       },
       createdAt: {
         allowNull: false,

@@ -7,6 +7,7 @@ const hotelManagerPage=require('./controller/hotelManagerPageController')
 const storeController=require('./controller/storePageController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
+const customerSearchController=require('./controller/customerSearchController')
 
 const approveReservationController = require('./controller/approveReservationPageController')
 const registrationValidationMiddelware=require('./middelware/registationMiddelware')
@@ -50,6 +51,9 @@ app.set('views', path.resolve(__dirname,'views'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(expressEdge)
+
+//search
+app.get('/customer_search',customerSearchController)
 
 //registration page
 app.get('/register' ,  registerController);

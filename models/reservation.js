@@ -18,6 +18,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
     },
+    check_out_date_passed:{
+      type: DataTypes.BOOLEAN 
+    },
+    payed_from_hotel_manager:{
+      type: DataTypes.BOOLEAN   
+    },
     check_in_date: DataTypes.DATE,
     check_out_date: DataTypes.DATE,
     appear: DataTypes.BOOLEAN

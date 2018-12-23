@@ -40,6 +40,9 @@ module.exports = {
       hotel_owner_username: {
         type: Sequelize.STRING
       },
+      approval_time:{
+       type: Sequelize.DATE
+      },
       suspended:{
         type:Sequelize.BOOLEAN
       },

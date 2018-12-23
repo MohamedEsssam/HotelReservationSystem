@@ -28,6 +28,12 @@ module.exports = {
       appear: {
         type: Sequelize.BOOLEAN
       },
+      check_out_date_passed:{
+        type: Sequelize.BOOLEAN 
+      },
+      payed_from_hotel_manager:{
+        type: Sequelize.BOOLEAN   
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

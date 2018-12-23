@@ -19,10 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     hotel_owner_username: DataTypes.STRING,
     suspended: DataTypes.BOOLEAN,
     approval: DataTypes.BOOLEAN,
+    
     hotel_username: {
       type:DataTypes.STRING,
       unique:true
     },
+    approval_time:{
+      type: DataTypes.DATE
+     },
     hotel_password:{
       type:DataTypes.STRING,
       unique:true
