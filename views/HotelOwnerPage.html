@@ -20,7 +20,7 @@
         position: relative;
         list-style-type: none;
         margin-left: 920px;  
-        margin-top: 10px
+        margin-top: 150px
       }
       #hotelinfo{
         margin-left: 650px;
@@ -61,36 +61,14 @@
       }
       
       #search{
-          margin-left: 1000px;
+          position: fixed;
+          margin-left: 2000px;
+          margin-top: -250px;
       }
       #hotels{
           margin-left: -900px;
       }
-      #dd{
-          position: absolute;
-          margin-top: 30px;
-          margin-left: -53px
-      }
-      #tt{
-          position: absolute;
-          margin-top: 60px;
-          margin-left: -53px
-      }
-      #qq{
-          position: absolute;
-          margin-top: 90px;
-          margin-left: -53px
-      }
-      #pp{
-          position: absolute;
-          margin-top: 120px;
-          margin-left: -53px
-      }
-      #add{
-        position: absolute;
-          margin-top: 120px;
-          margin-left: -53px
-      }
+      
     </style>
  
 </head>
@@ -117,54 +95,8 @@
                 </div>
               </nav>
 
-              <div id="search">
-                  <form action="">
-            <div> 
-                <h2>Add hotel</h2>
-                   <input type="text" placeholder="Hotel name">
-                   <div>
-                    <input type="text" placeholder="Location">
-                   </div>
-                 <div>
-                     <input type="text" placeholder="Telephone">
-                 </div>
-                 <div>
-                     <input type="text"placeholder="Email">
-                 </div>
-                 <div>
-                        <input type="text"placeholder="Postal code">
-                    </div>
-                  
-                 <button type="button" id="addsingle">+</button>  
-                 <button type="button" id="removesingle">-</button>  
-                 <span id="s"></span>
-             
-                 <span id="dd">
-                 <button type="button" id="adddouble">+</button>  
-                 <button type="button" id="removedouble">-</button>  
-                 <span id="d"></span>       
-                </span>
-
-                <span id="tt">
-                 <button type="button" id="addtriple">+</button>  
-                 <button type="button" id="removetriple">-</button>  
-                 <span id="t"></span>
-                </span>
-
-                <span id="qq">
-                 <button type="button" id="adddquadrable">+</button>  
-                 <button type="button" id="removequadrable">-</button>  
-                 <span id="q"></span>       
-                </span>
-
-                <span id="pp">
-                 <button type="button" id="addpremium">+</button>  
-                 <button type="button" id="removepremium">-</button>  
-                 <span id="p"></span>
-                </span>
-           
             </div>
-            <input type="button" value="Add hotel" id="add">
+            
         </form>
     </div>
             <div id="hotels">
@@ -181,7 +113,60 @@
                                     <button class="block" id="block"></button>
                             </div>
                   </div>
-               
+      
+
+              <div id="search">
+                  <form action="">
+            <div> 
+                <h2>Add hotel</h2>
+                   <input type="text" placeholder="Hotel name">
+                   <div>
+                    <input type="text" placeholder="Location">
+                   </div>
+                 <div>
+                     <input type="text" placeholder="Telephone">
+                 </div>
+                 <div>
+                     <input type="text"placeholder="Email">
+                 </div>
+                 <div>
+                        <input type="text"placeholder="Postal code">
+                    </div><br>
+                  
+         <div>
+                 <button type="button" id="addsingle">+</button>  
+                 <button type="button" id="removesingle">-</button>  
+                 <span id="s"></span><br>
+             
+                 <span id="dd">
+                 <button type="button" id="adddouble">+</button>  
+                 <button type="button" id="removedouble">-</button>  
+                 <span id="d"></span>       
+                </span><br>
+
+                <span id="tt">
+                 <button type="button" id="addtriple">+</button>  
+                 <button type="button" id="removetriple">-</button>  
+                 <span id="t"></span>
+                </span><br>
+
+                <span id="qq">
+                 <button type="button" id="adddquadrable">+</button>  
+                 <button type="button" id="removequadrable">-</button>  
+                 <span id="q"></span>       
+                </span><br>
+
+                <span id="pp">
+                 <button type="button" id="addpremium">+</button>  
+                 <button type="button" id="removepremium">-</button>  
+                 <span id="p"></span>
+                </span><br><br>
+
+                <input type="button" value="Upload" id="upload"><br>
+
+                <input type="button" value="Add hotel" id="add">
+            </div>
+            
 
             <script>
                 
