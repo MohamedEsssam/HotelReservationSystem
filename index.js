@@ -53,7 +53,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(expressEdge)
 
 //search
-app.get('/customer_search',customerSearchController)
+app.post('/customer_search',customerSearchController)
 
 //registration page
 app.get('/register' ,  registerController);

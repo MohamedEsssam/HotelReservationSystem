@@ -136,19 +136,27 @@
             <div id="container">
                      <h2 id="result" style="font-weight: bold;margin-left:90px">Search result</h2>
               <div id="hotelContainer">
-                    <ul>
-                            <li class="hotel" id="hotel">
+                    @if(selectedRooms.length>0)    
+                      <ul>
+                      @each(selectedRoom in selectedRooms)     
+                      <li class="hotel" id="hotel">
                                     <div class="dropdown">
-                                            <img src="hotel.jpg" alt="hotle imag" width="350" height="200">
+                                            <img src={{selectedRoom.dataValue.image}} alt="hotle imag" width="350" height="200">
                                             <div class="dropdown-content">
-                                            <img src="hotel.jpg" alt="Cinque Terre" width="550" height="350">
+                                            <img src={{selectedRoom.dataValue.image} alt="Cinque Terre" width="550" height="350">
                                             </div>
                                           </div>
-                                <p class="hotelname">3as3oos Hotel</p>
-                                <p class="rate">Rate : 5 Stars</p>
+                                <p class="hotelName">{{selectedRoom.dataValue.hotel_name}}</p>
+                                <p class="hotelLocation">{{selectedRoom.dataValue.hotel_location}}</p>
+                                <p class="stars">{{selectedRoom.dataValue.stars}}</p>
+                                <p class="telephone">{{selectedRoom.dataValue.telephone}}</p>
+                                <p class="email">{{selectedRoom.dataValue.email}}</p>
+                                <p class="postal_code">{{selectedRoom.dataValue.postal_code}}</p>
                                 <button class="reserve" id="reserve"></button>
                             </li>
+                        @endeach
                              </ul>
+                       @endif
               </div>
             </div>
 <script>

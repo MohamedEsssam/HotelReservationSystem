@@ -20,10 +20,10 @@ module.exports = {
         
       },
       check_in_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       check_out_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       appear: {
         type: Sequelize.BOOLEAN

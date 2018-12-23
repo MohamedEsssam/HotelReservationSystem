@@ -1,6 +1,7 @@
 
 const db=require('../models/index')
-module.exports=async (req,res)=>{
+const path=require('path')
+module.exports= async(req,res)=>{
 
     const { hotel_name,hotel_location,stars,room_type,check_in_date,check_out_date } = req.body;
 
@@ -16,28 +17,37 @@ module.exports=async (req,res)=>{
     searchQuery+=" inner join RESERVATIONs on RESERVATIONs.room_number=ROOMs.room_number and RESERVATIONs.hotel_name=ROOMs.hotel_name and RESERVATIONs.hotel_location=ROOMs.hotel_location" 
         
     +" where 1=1 and HOTELs.approval=1";
-        if(hotel_name!=null)
-        searchQuery+=" and hotel_name="+hotel_name;
-        if(hotel_location!=null)
-        searchQuery+=" and hotel_location="+hotel_location;
-        if(stars!=null)
-        searchQuery+=" and stars="+stars;
-        if(room_type!=null)
-        searchQuery+=" and room_type="+room_type;
+        if(hotel_name!=null&&hotel_name!='')
+        searchQuery+=" and HOTELs.hotel_name="+hotel_name;
+        if(hotel_location!=null&&hotel_location!='')
+        searchQuery+=" and HOTELs.hotel_location="+hotel_location;
+        if(stars!=null&&stars!='')
+        searchQuery+=" and HOTELs.stars="+stars;
+        if(room_type!=null&&room_type!='')
+        searchQuery+=" and HOTELs.room_type="+room_type;
          
         searchQuery+=" ORDER BY check_out_date ASC"
         var selectedRooms=[];
-        db.sequelize.query(searchQuery, { model:hotelModel}).then(searchedRooms => {
-         searchedRooms.forEach((element,index) => {
-             if(searchedRooms[index].dataValues.check_out_date<check_in_date){
-                if(check_in_date<searchedRooms[index+1].dataValues.check_in_date){
-                 SelectedRooms.push(searchedRooms[index]);
-                }
-                }
-                res.render("",{selectedRooms});
+        
+        await db.sequelize.query(searchQuery, { model:hotelModel}).then(searchedRooms => {
 
-             console.log(element.dataValues.room_number);
+            console.log(check_in_date+"------"+check_out_date+"\n")
+            console.log(searchedRooms[0])
+         
+            searchedRooms.forEach((element,index) => {
+                console.log(" ana gwa el for ")
+             if(searchedRooms[index].dataValues.check_out_date<check_in_date){
+                if(check_out_date<searchedRooms[index+1].dataValues.check_in_date){
+                    console.log('e7na da5lna el if')
+                 selectedRooms.push(searchedRooms[index]);
+                }
+                }
+               
+
+             //console.log(selectedRooms.dataValues.room_number);
           });
+          console.log(selectedRooms[0])
+          res.render('RoomsView');
         });
                
 }
