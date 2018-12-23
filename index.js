@@ -68,7 +68,7 @@ app.post('/login',loginController);
 
 app.get('/', homeController)
 
-app.get('//favicon.ico', homeController)
+app.get('/favicon.ico', homeController)
 
 app.post('/store/user', storeController)
 
