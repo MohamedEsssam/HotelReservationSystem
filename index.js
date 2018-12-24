@@ -8,6 +8,8 @@ const storeController=require('./controller/storePageController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
 const customerSearchController=require('./controller/customerSearchController')
+const reserveController=require('./controller/reserveController')
+
 
 const approveReservationController = require('./controller/approveReservationPageController')
 const registrationValidationMiddelware=require('./middelware/registationMiddelware')
@@ -56,7 +58,7 @@ app.use(expressEdge)
 app.post('/customer_search',customerSearchController)
 
 //registration page
-app.get('/register' ,  registerController);
+app.get('/register' , registerController);
 
 //Customer home page
 app.get('/customer/:username', customerPage)
@@ -66,6 +68,9 @@ app.get('/hotel_owner/:username', hotelOwnerPage)
 app.get('/broker/:username', brokerPage)
 //hotel home page
 app.get('/hotelManager/:username', hotelManagerPage)
+
+//reservation
+app.post('/reserve',reserveController)
 
 //login page
 app.post('/login',loginController);

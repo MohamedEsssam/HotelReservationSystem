@@ -24,7 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     payed_from_hotel_manager:{
       type: DataTypes.BOOLEAN   
     },
-    check_in_date: DataTypes.DATE,
+    check_in_date:{ 
+      type:DataTypes.DATE,
+      primaryKey: true
+    },
     check_out_date: DataTypes.DATE,
     appear: DataTypes.BOOLEAN
   }, {});

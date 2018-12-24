@@ -6,7 +6,9 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/UsernameCustomerForm.css" />
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <h2>Welcome To Our Booking Site</h2>
@@ -23,6 +25,13 @@
             <h3 id="cc"></h3>
             <h3></h3>
         </div>
+        @if(errors.length>0)
+        @each(error in errors) 
+                <ul class="lisgroup">  
+                <li class="list-group-item text-danger">{{error}} </li>
+                </ul>  
+        @endeach
+        @endif
         <form  method="POST" onsubmit="return validation()" action="/store/user">
         <!--for customer Or owner-->
         <select name="selectedType" id="select" v-model="selectedType">
@@ -40,7 +49,7 @@
             <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" required><br><br>
             <input type="text" placeholder="Hotel name" style="display: none;" class="registration_form" id="hotel" ><br>
             <input type="submit" value="SignUp" id="button"><br><br>
-            <p style="position:relative; margin-left:90px">if you are member?<br><a href="UserCustomerSignin.html">singin</a> </p>
+            <p style="position:relative; margin-left:90px">are you a member?<br><a href="/">sign in</a> </p>
         </form>
         </div>
          <!--for Error entering-->

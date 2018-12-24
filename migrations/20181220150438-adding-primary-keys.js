@@ -53,7 +53,7 @@ module.exports = {
       
       
         //Reservation primary
-         queryInterface.addConstraint('RESERVATIONs',['customer_username','room_number','hotel_name','hotel_location']
+         queryInterface.addConstraint('RESERVATIONs',['customer_username','room_number','hotel_name','hotel_location','check_in_date']
         ,{
           type:'primary key',
           name:'reservation_primary_constraint'

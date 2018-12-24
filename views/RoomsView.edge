@@ -146,14 +146,28 @@
                                             <img src={{selectedRoom.image} alt="Cinque Terre" width="550" height="350">
                                             </div>
                                           </div>
-                                <p class="hotelName">{{selectedRoom.hotel_name}}</p>
-                                <p class="hotelLocation">{{selectedRoom.hotel_location}}</p>
-                                <p class="stars">{{selectedRoom.stars}}</p>
-                                <p class="telephone">{{selectedRoom.telephone}}</p>
-                                <p class="email">{{selectedRoom.email}}</p>
-                                <p class="postal_code">{{selectedRoom.postal_code}}</p>
-                                <p class="room number">{{selectedRoom.dataValues.room_number}}</p>
-                                <button class="reserve" id="reserve"></button>
+                                  <form method="POST" action="/reserve">
+                                <p class="hotelName" name ="hotel_name">{{selectedRoom.hotel_name}}</p>
+                                <p class="hotelLocation" name="hotel_location">{{selectedRoom.hotel_location}}</p>
+                                <p class="stars" name="stars">{{selectedRoom.stars}}</p>
+                                <p class="telephone" name="telephone">{{selectedRoom.telephone}}</p>
+                                <p class="email" name="email">{{selectedRoom.email}}</p>
+                                <p class="postal_code" name=" postal_code">{{selectedRoom.postal_code}}</p>
+                                <p class="room type" name="room_type">{{selectedRoom.dataValues.type}}</p>                   
+                                <p class="room number" name="room_number">{{selectedRoom.dataValues.room_number}}</p>
+                                <p class="price" name="price">{{selectedRoom.dataValues.price}}</p>
+                                <p class="check_in_date" name="check_in_date" style="display:none">{{selectedRoom.dataValues.check_in_date}}</p>
+                                <p class="check_out_date" name="check_out_date" style="display:none">{{selectedRoom.dataValues.check_out_date}}</p>
+                                <p class="customer_username" name="customer_username" style="display:none">{{selectedRoom.dataValues.customer_username}}</p>
+                                <input type="hidden" name ="customer_username" value="{{selectedRoom.dataValues.customer_username}}"/>
+                                <input type="hidden" name ="room_number" value="{{selectedRoom.dataValues.room_number}}"/>
+                                <input type="hidden" name ="hotel_name" value="{{selectedRoom.hotel_name}}"/>
+                                <input type="hidden" name ="hotel_location" value="{{selectedRoom.hotel_location}}"/>
+                                <input type="hidden" name ="check_in_date" value="{{check_in_date}}"/>
+                                <input type="hidden" name ="check_out_date" value="{{check_out_date}}"/>
+                                
+                                <button class="reserve" id="reserve" type="submit"></button>
+                                </form>
                             </li>
                         @endeach
                              </ul>
