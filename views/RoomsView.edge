@@ -121,7 +121,7 @@
                   <h3 style="font-weight: bold">search for hotel</h3><br>
                   <label for="">search</label>
                   <input type="search" id="search"><br><br>
-                  <label for="">Roomnumbers</label>
+                  <label for="">Room number</label>
                   <input type="text" id="roomNumbers"><br><br>
                   <label for="">Room type</label>
                   <input type="text" id="type"><br><br>
@@ -141,17 +141,18 @@
                       @each(selectedRoom in selectedRooms)     
                       <li class="hotel" id="hotel">
                                     <div class="dropdown">
-                                            <img src={{selectedRoom.dataValue.image}} alt="hotle imag" width="350" height="200">
+                                            <img src={{selectedRoom.image}} alt="hotle imag" width="350" height="200">
                                             <div class="dropdown-content">
-                                            <img src={{selectedRoom.dataValue.image} alt="Cinque Terre" width="550" height="350">
+                                            <img src={{selectedRoom.image} alt="Cinque Terre" width="550" height="350">
                                             </div>
                                           </div>
-                                <p class="hotelName">{{selectedRoom.dataValue.hotel_name}}</p>
-                                <p class="hotelLocation">{{selectedRoom.dataValue.hotel_location}}</p>
-                                <p class="stars">{{selectedRoom.dataValue.stars}}</p>
-                                <p class="telephone">{{selectedRoom.dataValue.telephone}}</p>
-                                <p class="email">{{selectedRoom.dataValue.email}}</p>
-                                <p class="postal_code">{{selectedRoom.dataValue.postal_code}}</p>
+                                <p class="hotelName">{{selectedRoom.hotel_name}}</p>
+                                <p class="hotelLocation">{{selectedRoom.hotel_location}}</p>
+                                <p class="stars">{{selectedRoom.stars}}</p>
+                                <p class="telephone">{{selectedRoom.telephone}}</p>
+                                <p class="email">{{selectedRoom.email}}</p>
+                                <p class="postal_code">{{selectedRoom.postal_code}}</p>
+                                <p class="room number">{{selectedRoom.dataValues.room_number}}</p>
                                 <button class="reserve" id="reserve"></button>
                             </li>
                         @endeach
