@@ -20,7 +20,7 @@
         position: relative;
         list-style-type: none;
         margin-left: 920px;  
-        margin-top: 10px
+        margin-top: 150px
       }
     
       #hotelinfo{
@@ -62,36 +62,14 @@
       }
       
       #search{
-          margin-left: 1000px;
+          position: fixed;
+          margin-left: 2000px;
+          margin-top: -250px;
       }
       #hotels{
           margin-left: -900px;
       }
-      #dd{
-          position: absolute;
-          margin-top: 30px;
-          margin-left: -53px
-      }
-      #tt{
-          position: absolute;
-          margin-top: 60px;
-          margin-left: -53px
-      }
-      #qq{
-          position: absolute;
-          margin-top: 90px;
-          margin-left: -53px
-      }
-      #pp{
-          position: absolute;
-          margin-top: 120px;
-          margin-left: -53px
-      }
-      #add{
-        position: absolute;
-          margin-top: 120px;
-          margin-left: -53px
-      }
+      
     </style>
  
 </head>
@@ -118,6 +96,26 @@
                 </div>
               </nav>
 
+            </div>
+            
+        </form>
+    </div>
+            <div id="hotels">
+                <h2 class="Info">Owner's hotel</h2>
+                      
+                            <div class="hotel" id="hotel">
+                                    <img src="hotel.jpg" alt="" width="600" height="300">
+                                    <div id="hotelinfo">
+                                    <p class="hotelname">Botato hotel</p>
+                                    <p class="Location" id="Location">Location : New York</p>
+                                    <p class="Email">Email : adsda@dsssfa.com</p>
+                                    <p class="phone">Phone : 012330123241</p>
+                                    <p class="rate">Hotel rate : 5 Stars</p>
+                                    <button class="block" id="block"></button>
+                            </div>
+                  </div>
+      
+
               <div id="search">
                   <form action="/add_hotel/{{hotelOwner.username}}">
             <div> 
@@ -133,38 +131,48 @@
                      <input type="text"placeholder="Email" name = "email">
                  </div>
                  <div>
+<<<<<<< HEAD:views/HotelOwnerPage2.edge
                         <input type="text"placeholder="Postal code" name = "postal_code">
                     </div>
+=======
+                        <input type="text"placeholder="Postal code">
+                    </div><br>
+>>>>>>> df9ab00e4a5630217752cd569a414a2c9e1cd925:views/HotelOwnerPage.html
                   
+         <div>
                  <button type="button" id="addsingle">+</button>  
                  <button type="button" id="removesingle">-</button>  
-                 <span id="s"></span>
+                 <span id="s"></span><br>
              
                  <span id="dd">
                  <button type="button" id="adddouble">+</button>  
                  <button type="button" id="removedouble">-</button>  
                  <span id="d"></span>       
-                </span>
+                </span><br>
 
                 <span id="tt">
                  <button type="button" id="addtriple">+</button>  
                  <button type="button" id="removetriple">-</button>  
                  <span id="t"></span>
-                </span>
+                </span><br>
 
                 <span id="qq">
                  <button type="button" id="adddquadrable">+</button>  
                  <button type="button" id="removequadrable">-</button>  
                  <span id="q"></span>       
-                </span>
+                </span><br>
 
                 <span id="pp">
                  <button type="button" id="addpremium">+</button>  
                  <button type="button" id="removepremium">-</button>  
                  <span id="p"></span>
-                </span>
-           
+                </span><br><br>
+
+                <input type="button" value="Upload" id="upload"><br>
+
+                <input type="button" value="Add hotel" id="add">
             </div>
+<<<<<<< HEAD:views/HotelOwnerPage2.edge
             <input type="button" value="Add hotel" id="add">
         </form>
     </div>
@@ -186,6 +194,9 @@
                             @endeach
                   </div>
                
+=======
+            
+>>>>>>> df9ab00e4a5630217752cd569a414a2c9e1cd925:views/HotelOwnerPage.html
 
             <script>
                 

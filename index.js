@@ -7,7 +7,14 @@ const hotelManagerPage=require('./controller/hotelManagerPageController')
 const storeController=require('./controller/storePageController')
 const homeController = require('./controller/homePageController')
 const hotelInfoController = require('./controller/hotelInfoPageController')
+<<<<<<< HEAD
 const addhotelController = require('./controller/addNewHotelController.js')
+=======
+const customerSearchController=require('./controller/customerSearchController')
+const reserveController=require('./controller/reserveController')
+
+
+>>>>>>> df9ab00e4a5630217752cd569a414a2c9e1cd925
 const approveReservationController = require('./controller/approveReservationPageController')
 const approveHotelController = require('./controller/approveHotelPageController')
 const disapproveHotelController =require('./controller/disapproveHotelPageController')
@@ -54,8 +61,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(expressEdge)
 
+//search
+app.post('/customer_search',customerSearchController)
+
 //registration page
-app.get('/register' ,  registerController);
+app.get('/register' , registerController);
 
 //Customer home page
 app.get('/customer/:username', customerPage)
@@ -65,6 +75,9 @@ app.get('/hotel_owner/:username', hotelOwnerPage)
 app.get('/broker/:username', brokerPage)
 //hotel home page
 app.get('/hotel/:username', hotelManagerPage)
+
+//reservation
+app.post('/reserve',reserveController)
 
 //login page
 app.post('/login',loginController);

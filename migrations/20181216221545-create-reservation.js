@@ -20,13 +20,19 @@ module.exports = {
         
       },
       check_in_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       check_out_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       appear: {
         type: Sequelize.BOOLEAN
+      },
+      check_out_date_passed:{
+        type: Sequelize.BOOLEAN 
+      },
+      payed_from_hotel_manager:{
+        type: Sequelize.BOOLEAN   
       },
       createdAt: {
         allowNull: false,
