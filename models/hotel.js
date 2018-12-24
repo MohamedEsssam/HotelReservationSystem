@@ -19,15 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     hotel_owner_username: DataTypes.STRING,
     suspended: DataTypes.BOOLEAN,
     approval: DataTypes.BOOLEAN,
-    hotel_username: {
+    username: {
       type:DataTypes.STRING,
       unique:true
     },
-    hotel_password:{
+    password:{
       type:DataTypes.STRING,
-      unique:true
-      
-    }
+    },
+    image: DataTypes.STRING
   }, {});
   HOTEL.associate = function (models) {
     HOTEL.belongsTo(models.HOTEL_OWNER, {

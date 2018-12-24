@@ -30,7 +30,8 @@
       .hotel{
         position: relative;
         list-style-type: none;
-        margin-left: 100px;  
+        margin-left:20px;  
+        margin-top: 300px;
       }
       #hotelinfo{
         margin-left: 650px;
@@ -139,14 +140,21 @@
                     <ul class="nav navbar-nav navbar-right" id="notification">
                             <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <label for=>Notification</label>
+                                            <label>Notification</label>
                                     <span class="badge" id="count">{{unapprovedHotels.count}}</span>
                                     <span class="caret"></span></a>
-                                    <ul class="dropdown-menu"style="width: 335px;">
+                                    <ul class="dropdown-menu"style="width: 330px;">
                                       @each(hotel in unapprovedHotels.rows)
+                                      <div style="height: 40px;">
                                       <span class="information"> want to add {{hotel.hotel_name}} hotel</span>
-                                      <input type="button" value="Reject" class="reject">
-                                      <input type="button" value="Accept" class="accept">
+                                      <form method="GET" action="/approveHotel/{{hotel.hotel_name}}/{{hotel.hotel_location}}">
+                                      <input style="position: absolute; margin-left:200px; margin-top: -20px" type="submit" value="Accept" class="accept" onclick="approve('{{hotel.hotel_name}}', '{{hotel.hotel_location}}')">
+                                       </form>
+                                    <form action="/disapproveHotel/{{hotel.hotel_name}}/{{hotel.hotel_location}}" method="GET">
+                                      <input style="position: absolute; margin-left:260px;margin-top: -20px;" type="submit" value="Reject" class="reject" onclick="disapprove('{{hotel.hotel_name}}', '{{hotel.hotel_location}}')">
+                                    </form>
+                                    </div>
+                                  
                                       @endeach
                                      </ul>
                                   </li>
@@ -159,16 +167,19 @@
               <a href="#a" id="herf">Customer Info</a>
               <div>
                   <h2 class="Info">Hotel Info</h2>
+                  @each(hotel in approvedHotels)
                       <div class="hotel" id="hotel">  
-                          <img src="hotel.jpg" alt="" width="600" height="300">
+                        <img src= "{{hotel.image}}" alt="{{hotel.image}}" width="600" height="300">
                           <div id="hotelinfo">
-                          <p class="hotelname">Botato hotel</p>
-                          <p class="Location" id="Location">Location : New York</p>
-                          <p class="Email">Email : adsda@dsssfa.com</p>
-                          <p class="phone">Phone : 012330123241</p>
-                          <p class="rate">Hotel rate : 5 Stars</p>
+                          <p class="hotelname">{{hotel.hotel_name}}</p>
+                          <p class="Location" id="Location">Location : {{hotel.hotel_name}}</p>
+                          <p class="Email">Email : {{hotel.hotel_name}}</p>
+                          <p class="phone">Phone : {{hotel.hotel_name}}</p>
+                          <p class="rate">Hotel rate : {{hotel.stars}} Stars</p>
                           <button class="block" id="block"></button>
+                          
                     </div>
+                    @endeach
                     <hr id="line">
               </div>
                 </div>
@@ -180,7 +191,7 @@
           @each(customer in customers)
                     <h2>{{customer.name}}</h2>
                     <p><strong>Email : {{customer.email}} </strong> </p>
-                    <p><strong>phone : {{customer.phone}} </p>
+                    <p><strong>phone : {{customer.telephone}} </p>
                       <p><strong>SSN : {{customer.ssn}} </p>
                     
           @endeach
@@ -196,6 +207,17 @@
                 document.getElementById("block").addEventListener("click",function(){
                       document.getElementById("block").style.content="unblock";
                 })
+
+              function approve(hotel_name, hotel_location){
+                console.log("tttttttttttttttttttttttttttttttt")
+                console.log(hotel_name + " " + hotel_location)
+                         var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {}
+                         };
+                           xhttp.open("GET", "/approveHotel/" + hotel_name + "/" + hotel_location, true);
+                              xhttp.send();
+              }
       </script>
 
 </body>

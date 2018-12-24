@@ -12,14 +12,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
       .container{
-          margin-left: -300px;
+        position: relative;
+          left: -350px;
+          margin-top: 20px;
+          padding-bottom: 20px;
       }
       .container2{
           position: relative;
-          left: -335px;
+          left: -300px;
       }
       #herf{
        margin-left:1200px; 
+       margin-top: 20px;
+          padding-bottom: 20px;
      }
   
      
@@ -43,7 +48,7 @@
                       <li class="active"><a href="#">Home</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" id="notification">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{hotelOwner.name}}</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{hotel.hotel_name}}</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                   </div>
@@ -55,17 +60,19 @@
               <div class="container">
   <div class="row" id="">
       <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+          @each(customer in commingCustomers)
        <div class="well profile">
-        
                   <h2>{{customer.name}}</h2>
                   <p><strong>Email : {{customer.email}} </strong> </p>
                   <p><strong>phone : {{customer.phone}} </p>
                     <p><strong>SSN : {{customer.ssn}} </p>
                         <div>
+                        <!-- appear = 1 pay for broker -->
                         <button id="in">Check-in</button>
+                        <!-- check out date passed -->
                         <button id="out">Check-out</button>
                     </div>
-    
+                    @endeach
               </div>
           </div>
          </div>
@@ -77,8 +84,8 @@
         <div class="container2">
 <div class="row" id="">
 <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+  @each(customer in customersMustCome)
  <div class="well profile">
-  
             <h2>{{customer.name}}</h2>
             <p><strong>Email : {{customer.email}} </strong> </p>
             <p><strong>phone : {{customer.phone}} </p>
@@ -86,6 +93,7 @@
                   <div>
                   <button id="block">Block</button>
               </div>
+              @endeach
 
         </div>
     </div>

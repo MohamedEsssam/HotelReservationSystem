@@ -54,16 +54,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      hotel_username:{
+      username:{
         type: Sequelize.STRING,
         allowNull:false,
         unique:true
       },
-      hotel_password:{
+      password:{
         type: Sequelize.STRING,
         allowNull:false,
-        unique:true
-      
+      },
+      image: {
+        type: Sequelize.STRING
       }
     });
   },

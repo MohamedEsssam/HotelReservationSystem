@@ -32,12 +32,12 @@
        
         <!--for user inputs-->
             <input type="text" placeholder="Customer Or Owner" class="registration_form" id="username" name="username" required><br><br>
-            <input type="text" placeholder="First name" class="registration_form" id="Fullname" name="name" required>
+            <input type="text" placeholder="First name" class="registration_form" id="Fullname" name="name" required><br><br>
             <input type="text" placeholder="SSN" class="registration_form"  id="ssn" name="ssn" required><br><br>
             <input type="text" placeholder="Email" class="registration_form"  id="email" name="email" required><br><br>
-            <input type="text" placeholder="Phone number" class="registration_form"  id="phone" name="phone" required><br><br>
-            <input type="password" placeholder="Password" class="registration_form"  id="pass" name="Password" required><br><br>
-            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" required><br><br>
+            <input type="text" placeholder="Phone number" class="registration_form"  id="phone" name="telephone" required><br><br>
+            <input type="password" placeholder="Password" class="registration_form"  id="password" name="password" required><br><br>
+            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" class="registration_form"  id="credit" name="credit" required><br><br>
             <input type="text" placeholder="Hotel name" style="display: none;" class="registration_form" id="hotel" ><br>
             <input type="submit" value="SignUp" id="button"><br><br>
             <p style="position:relative; margin-left:90px">if you are member?<br><a href="UserCustomerSignin.html">singin</a> </p>
@@ -53,24 +53,21 @@ document.getElementById("button").addEventListener("click",validation);
 function validation(){
     var check = 0;
     //user input
-    var Fullname=document.getElementById("Fullname").value;
-    var username=document.getElementById("username").value;
-    var ssn=document.getElementById("ssn").value;
-    var email=document.getElementById("email").value;
-    var phone=document.getElementById("phone").value;
-    var pass=document.getElementById("pass").value;
-    var cpass=document.getElementById("cpass").value;
-    var credit=document.getElementById("credit").value; 
-
+    var Fullname =  document.getElementById("Fullname").value;
+    var username =  document.getElementById("username").value;
+    var password =  document.getElementById("password").value;
+    var ssn =       document.getElementById("ssn").value;
+    var email =     document.getElementById("email").value;
+    var phone =     document.getElementById("phone").value;
+    var credit =    document.getElementById("credit").value; 
     //Regex for user input
     const name = /^[a-zA-Z]+[a-zA-Z]*$/;
     const user_name = /^[a-zA-Z]+[a-zA-Z0-9]*$/;
     const email_check=/^[a-zA-Z0-9]+(@hotmail.com)$|^[a-zA-Z0-9]+(@gmail.com)$|^[a-zA-Z0-9]+(@yahoo.com)$/;
-    const pass_check=/^[\w]{8,}/;
+    const pass_check=/^[a-zA-Z0-9]{8,}$/;
     const phone_check=/^[0-9]{11}$/;
-    const check_ssn =/^[\w]{8,}$/;
+    const check_ssn =/^[0-9]{5,}$/;
     const credit_check = /^[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}(-)[0-9]{4}$/;
-    
     //check validation of input
     if(!name.test(Fullname)){
         document.getElementById("fn").innerHTML="-Invalid First name";
@@ -82,10 +79,16 @@ function validation(){
     check++;
    }else document.getElementById("cs").innerHTML="";
 
-   if (! check_ssn.test(ssn)){
-    document.getElementById("ss").innerHTML="-Invalid User SSN";
+   if (! pass_check.test(password)){
+    document.getElementById("pa").innerHTML="-Invalid password";
+    check++;
+   }else document.getElementById("pa").innerHTML="";
+
+if (! check_ssn.test(ssn)){
+    document.getElementById("ss").innerHTML="-Invalid SSN User";
     check++;
    }else document.getElementById("ss").innerHTML="";
+
 
    if(!phone_check.test(phone)){
     document.getElementById("ph").innerHTML="-Invalid phone number";
@@ -102,10 +105,6 @@ function validation(){
     check++;
    }else document.getElementById("em").innerHTML="";
     
-   if(!pass_check.test(pass)){
-     document.getElementById("pa").innerHTML="-Weak Password";
-     check++;
-    }else document.getElementById("pa").innerHTML="";
     
     if(check>0){
       document.getElementById("Error").style.display="block";

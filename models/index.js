@@ -9,6 +9,7 @@ const config = require(__dirname + '/../config/config.json')[env];
 var db ;
 function connectDatabase(){
   if(!db){
+    console.log(env)
     db={}
     let sequelize;
     if (config.use_env_variable) {

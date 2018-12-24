@@ -20,7 +20,7 @@
         position: relative;
         list-style-type: none;
         margin-left: 920px;  
-        margin-top: 10px
+        margin-top: 220px
       }
       #hotelinfo{
         margin-left: 650px;
@@ -61,36 +61,19 @@
       }
       
       #search{
-          margin-left: 1000px;
+          position: fixed;
+          left: 1100px;
+          top: 100px;
       }
       #hotels{
           margin-left: -900px;
       }
-      #dd{
+      #yy{
           position: absolute;
-          margin-top: 30px;
-          margin-left: -53px
+          top: 180px;
+          left: 100px;
       }
-      #tt{
-          position: absolute;
-          margin-top: 60px;
-          margin-left: -53px
-      }
-      #qq{
-          position: absolute;
-          margin-top: 90px;
-          margin-left: -53px
-      }
-      #pp{
-          position: absolute;
-          margin-top: 120px;
-          margin-left: -53px
-      }
-      #add{
-        position: absolute;
-          margin-top: 120px;
-          margin-left: -53px
-      }
+      
     </style>
  
 </head>
@@ -117,71 +100,92 @@
                 </div>
               </nav>
 
+            </div>
+            
+        </form>
+    </div>
+    <div>
+            <div id="hotels">
+                @each(hotel in hotelOwnerHotels)
+                <ul>
+                <li class="hotel" id="hotel">
+                        <img src= "{{hotel.image}}" alt="{{hotel.image}}" width="600" height="300">
+                        <div id="hotelinfo">
+                        <p class="hotelname">{{hotel.hotel_name}} </p>
+                        <p class="Location" id="Location">Location : {{hotel.hotel_location}}</p>
+                        <p class="Email">Email : {{hotel.email}}</p>
+                        <p class="phone">Phone : {{hotel.phone}}</p>
+                        <p class="rate">Hotel rate : {{hotel.stars}} Stars</p>
+                        <button class="block" id="block"></button>
+                       
+                        </li>
+                    </ul>
+                @endeach
+                  </div>
+      <h2 id="yy">Owner's Hotels</h2>
+
               <div id="search">
-                  <form action="">
+              <form method="POST" action="/add_new_hotel/{{hotelOwner.username}}" enctype="multipart/form-data">
             <div> 
                 <h2>Add hotel</h2>
-                   <input type="text" placeholder="Hotel name">
+                   <input type="text" placeholder="Hotel name" name = "hotel_name">
                    <div>
-                    <input type="text" placeholder="Location">
+                    <input type="text" placeholder="Location" name="hotel_location">
                    </div>
+
+                   <div>
+                    <input type="text" placeholder="Hotel_Manger_Username" name="hotel_username">
+                   </div>
+
+                   <div>
+                    <input type="text" placeholder="Hotel_Manger_password" name="hotel_password">
+                   </div>
+
                  <div>
-                     <input type="text" placeholder="Telephone">
+                     <input type="text" placeholder="Telephone" name="telephone">
                  </div>
                  <div>
-                     <input type="text"placeholder="Email">
+                     <input type="text"placeholder="Email" name="email">
                  </div>
                  <div>
-                        <input type="text"placeholder="Postal code">
-                    </div>
+                        <input type="text"placeholder="Postal code" name="postal_code">
+                    </div><br>
                   
+         <div>
                  <button type="button" id="addsingle">+</button>  
                  <button type="button" id="removesingle">-</button>  
-                 <span id="s"></span>
+                 <span id="s"></span><br>
              
                  <span id="dd">
                  <button type="button" id="adddouble">+</button>  
                  <button type="button" id="removedouble">-</button>  
                  <span id="d"></span>       
-                </span>
+                </span><br>
 
                 <span id="tt">
                  <button type="button" id="addtriple">+</button>  
                  <button type="button" id="removetriple">-</button>  
                  <span id="t"></span>
-                </span>
+                </span><br>
 
                 <span id="qq">
                  <button type="button" id="adddquadrable">+</button>  
                  <button type="button" id="removequadrable">-</button>  
                  <span id="q"></span>       
-                </span>
+                </span><br>
 
                 <span id="pp">
                  <button type="button" id="addpremium">+</button>  
                  <button type="button" id="removepremium">-</button>  
                  <span id="p"></span>
-                </span>
-           
+                </span><br><br>
+
+                <input type="file" name="image"><br>
+
+                <input type="submit" value="Add hotel" id="add">
+            </form>
             </div>
-            <input type="button" value="Add hotel" id="add">
-        </form>
-    </div>
-            <div id="hotels">
-                <h2 class="Info">Owner's hotel</h2>
-                      
-                            <div class="hotel" id="hotel">
-                                    <img src="hotel.jpg" alt="" width="600" height="300">
-                                    <div id="hotelinfo">
-                                    <p class="hotelname">Botato hotel</p>
-                                    <p class="Location" id="Location">Location : New York</p>
-                                    <p class="Email">Email : adsda@dsssfa.com</p>
-                                    <p class="phone">Phone : 012330123241</p>
-                                    <p class="rate">Hotel rate : 5 Stars</p>
-                                    <button class="block" id="block"></button>
-                            </div>
-                  </div>
-               
+        </div>
 
             <script>
                 

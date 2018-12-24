@@ -84,14 +84,8 @@
                       <li class="active"><a href="#">Home</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" id="reserve">
-                            <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <label for=>Previous Reservations</label>
-                                    <span class="caret"></span></a>
-                                    <ul class="dropdown-menu"style="width: 335px;">
-                                     </ul>
-                                  </li>
-                      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
+                            
+                      <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{customer.name}}</a></li>
                       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                   </div>
@@ -127,13 +121,14 @@
                     
                       <div class="hotel" id="hotel">
                           <div id="hotelinfo">
-                          <p class="hotelname">Botato hotel</p>
-                          <p class="Location" id="Location">Location : New York</p>
-                          <p class="Email">Email : adsda@dsssfa.com</p>
-                          <p class="phone">Phone : 012330123241</p>
-                          <p class="rate">Hotel rate : 5 Stars</p>
+                            @each(reservation in reservations)
+                          <p class="hotelname">{{reservation.hotel_name}}</p>
+                          <p class="Location" id="Location">Location : {{reservation.hotel_location}}</p>
+                          <p class="Check_in">Check_in : {{reservation.check_in_date}}</p>
+                          <p class="Check_out">Check_out : {{reservation.check_out_date}}</p>
                           <span class="fa fa-star"></span>
                           <hr style="width: 400px; margin-left: -10px">
+                          @endeach
                     </div>
             
 </body>
