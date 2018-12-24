@@ -26,12 +26,12 @@
         margin-left: 650px;
         margin-top: -300px;
       }
-       .block::before{
-       content: "Block";
+       .mange::before{
+       content: "mange";
        color: white;
        text-align: center;
       }
-       .block{
+       .mange{
          outline: none;
           content: "Block";
           background: black;
@@ -86,7 +86,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="#">Botato Booking</a>
+                    <a class="navbar-brand" href="#">Booking</a>
                   </div>
                   <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class       ="nav navbar-nav">
@@ -116,7 +116,7 @@
                         <p class="Email">Email : {{hotel.email}}</p>
                         <p class="phone">Phone : {{hotel.phone}}</p>
                         <p class="rate">Hotel rate : {{hotel.stars}} Stars</p>
-                        <button class="block" id="block"></button>
+                        <button class="mange" id="mange"></button>
                        
                         </li>
                     </ul>
@@ -152,37 +152,11 @@
                     </div><br>
                   
          <div>
-                 <button type="button" id="addsingle">+</button>  
-                 <button type="button" id="removesingle">-</button>  
-                 <span id="s"></span><br>
-             
-                 <span id="dd">
-                 <button type="button" id="adddouble">+</button>  
-                 <button type="button" id="removedouble">-</button>  
-                 <span id="d"></span>       
-                </span><br>
-
-                <span id="tt">
-                 <button type="button" id="addtriple">+</button>  
-                 <button type="button" id="removetriple">-</button>  
-                 <span id="t"></span>
-                </span><br>
-
-                <span id="qq">
-                 <button type="button" id="adddquadrable">+</button>  
-                 <button type="button" id="removequadrable">-</button>  
-                 <span id="q"></span>       
-                </span><br>
-
-                <span id="pp">
-                 <button type="button" id="addpremium">+</button>  
-                 <button type="button" id="removepremium">-</button>  
-                 <span id="p"></span>
-                </span><br><br>
-
+                <input type="text"placeholder="single room number" name="singleRoom"><br>
+                <input type="text"placeholder="double room number" name="doubleRoom"><br>
                 <input type="file" name="image"><br>
 
-                <input type="submit" value="Add hotel" id="add">
+                <input type="submit" value="Add hotel" id="add" required>
             </form>
             </div>
         </div>
